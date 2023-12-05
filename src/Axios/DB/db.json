@@ -1,0 +1,25 @@
+{
+  "RegisteredUsers": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "johns_password",
+      "confirmPassword": "johns_password"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "jane@example.com",
+      "password": "janes_password",
+      "confirmPassword": "janes_password"
+    },
+    {
+      "name": "Disha Patil",
+      "email": "patil@gmail.com",
+      "password": "aqswde123",
+      "confirmPassword": "aqswde123",
+      "id": 3
+    }
+  ]
+}
