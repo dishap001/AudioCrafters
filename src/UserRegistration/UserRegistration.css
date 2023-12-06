@@ -1,0 +1,80 @@
+/* UserRegistration.css */
+
+.form-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.input-error {
+    border: 1px solid red;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.success-message {
+    color: green;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.signup-link p,
+.signin-link p {
+    margin-top: 15px;
+}
+
+/* Additional Styles for SignUp Form */
+.form-container.signup {
+    max-width: 1000px;
+}
+
+/* Additional Styles for SignIn Form */
+.form-container.signin {
+    max-width: 400px;
+}
+.form-group.horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .form-group.horizontal label {
+    margin-right: 10px; /* Add margin between label and input */
+  }
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .form-container {
+        max-width: 100%;
+        margin-top: 20px; /* Adjusted margin for better spacing on smaller screens */
+    }
+
+    .form-container.signup {
+        max-width: 100%;
+    }
+
+    .form-container.signin {
+        max-width: 100%;
+    }
+    .form-group.horizontal {
+        flex-direction: column; /* Adjust direction to column for smaller screens */
+        align-items: flex-start; /* Align items to the start for smaller screens */
+      }
+}

@@ -1,6 +1,6 @@
 
 import { useRoutes } from 'react-router-dom'
-import './App.css'
+// import './App.css'
 import Header from './Header/Header'
 import routes from './Route/Route'
 

@@ -34,6 +34,61 @@
       "password": "alisha@123",
       "confirmPassword": "alisha@123",
       "id": 5
+    },
+    {
+      "name": "Disha",
+      "email": "Dishap@0112.gmail.com",
+      "password": "01122001",
+      "confirmPassword": "01122001",
+      "id": 6
+    },
+    {
+      "name": "kalpa",
+      "email": "kalpa@gmail.com",
+      "password": "kalpa123",
+      "confirmPassword": "kalpa123",
+      "id": 7
+    },
+    {
+      "name": "kalpa teli",
+      "email": "kalpa12@gmail.com",
+      "password": "k@12345",
+      "confirmPassword": "k@12345",
+      "id": 8
+    },
+    {
+      "name": "Alisha Mendonca",
+      "email": "Alisha@16gmail.com",
+      "password": "alisha12345",
+      "confirmPassword": "alisha12345",
+      "id": 9
+    }
+  ],
+  "SignedInUsers": [
+    {
+      "id": 1,
+      "email": "john@example.com",
+      "password": "johns_password"
+    },
+    {
+      "id": 2,
+      "email": "jane@example.com",
+      "password": "janes_password"
+    },
+    {
+      "email": "patil@gmail.com",
+      "password": "aqswde123",
+      "id": 3
+    },
+    {
+      "email": "jane@example.com",
+      "password": "janes_password",
+      "id": 4
+    },
+    {
+      "email": "Alisha@16gmail.com",
+      "password": "alisha12345",
+      "id": 5
     }
   ]
 }
