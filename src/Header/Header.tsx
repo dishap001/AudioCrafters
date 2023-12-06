@@ -44,6 +44,12 @@ function Header() {
           <Nav.Link as={Link} to="/">
             Home
           </Nav.Link>
+          <Nav.Link as={Link} to="/ForArtists">
+            For Artists
+          </Nav.Link>
+          <Nav.Link as={Link} to="/ForListeners">
+            For Listeners
+          </Nav.Link>
         </Nav>
         <Nav>
           <Nav.Link as={Link} to="/SignUp">
