@@ -20,6 +20,20 @@
       "password": "aqswde123",
       "confirmPassword": "aqswde123",
       "id": 3
+    },
+    {
+      "name": "Sans Thorat",
+      "email": "Sans@gmail.com",
+      "password": "sans@123",
+      "confirmPassword": "sans@123",
+      "id": 4
+    },
+    {
+      "name": "Alisha Mendonca",
+      "email": "Mendonca@A.com.gmail",
+      "password": "alisha@123",
+      "confirmPassword": "alisha@123",
+      "id": 5
     }
   ]
 }
