@@ -5,7 +5,8 @@ const AudioRecorder = () => {
   const audioChunk = useRef<Blob[]>([]);
   const [recordings,setRecordings] = useState<string[]>([]);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const [streamRecording,setStreamRecording] = useState(false)
+  const [streamRecording,setStreamRecording] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   const startRecording = async () => {
     
@@ -49,17 +50,41 @@ const AudioRecorder = () => {
       console.error("Error stoping microphone:", error);
     }
   };
+  const pauseRecording = () => {
+    try {
+      if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
+        mediaRecorderRef.current.pause();
+        setIsPaused(true);
+      }
+    } catch (error) {
+      console.error("Error pausing recording:", error);
+    }
+  };
 
+  const resumeRecording = () => {
+    try {
+      if (mediaRecorderRef.current && mediaRecorderRef.current.state === "paused") {
+        mediaRecorderRef.current.resume();
+        setIsPaused(false);
+      }
+    } catch (error) {
+      console.error("Error resuming recording:", error);
+    }
+  };
 
 
   return (
     <>
     <h3>Audio Recording Feature</h3>
     
-    {/* <button onClick={startRecording}> Start Recording</button>
-    <button onClick={stopRecording}> Stop Recording</button> */}
      <button onClick={startRecording} disabled={streamRecording}>
         Start Recording
+      </button>
+      <button onClick={pauseRecording} disabled={!streamRecording || isPaused}>
+        Pause Recording
+      </button>
+      <button onClick={resumeRecording} disabled={!streamRecording || !isPaused}>
+        Resume Recording
       </button>
       <button onClick={stopRecording} disabled={!streamRecording}>
         Stop Recording
