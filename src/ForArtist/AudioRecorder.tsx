@@ -31,10 +31,12 @@ const AudioRecorder = () => {
             const audioBlob = new Blob(audioChunk.current,{ type:'audio/wav' });
             const audioUrl = URL.createObjectURL(audioBlob);
 
-            setRecordings((prevRecs ) => [ audioUrl,...prevRecs  ]);
+           setRecordings((prevRecs ) => [ audioUrl,...prevRecs  ]);
+        
             setRecordingDuration(0);
             clearInterval(timerRef.current!); 
             
+         
           };
           mediaRecorderRef.current = mediaRecorder;
           mediaRecorder.start(); //it will start recording as soon as it allows
@@ -105,18 +107,21 @@ const AudioRecorder = () => {
       console.error("Error resuming recording:", error);
     }
   };
-
+  const deleteRecording = (indexToDelete:number) => {
+    setRecordings((prevRecs) => prevRecs.filter((_, index) => index !== indexToDelete));
+  };
+  
 
   return (
     <>
     <div className="audio-recorder-container">
     <h3>Audio Recording Feature</h3>
-    <div>
-      <p>Recording Time: {recordingDuration} seconds</p>
-      {streamRecording && (
+   
+
+<div className="recording-info">
+        <p>Recording Time: {recordingDuration} seconds</p>
         <progress max="100" value={(recordingDuration / 10) * 10}></progress>
-      )}
-    </div>
+      </div>
     <button onClick={startRecording} disabled={streamRecording}>
       Start Recording
     </button>
@@ -137,9 +142,11 @@ const AudioRecorder = () => {
       return (
         <div key={index}>
           <audio controls src={recUrl} />
-          <a href={recUrl} download>
+          <button><a href={recUrl} download>
             Download
-          </a>
+          </a></button>
+          <button onClick={() => deleteRecording(index)}>Delete</button>
+    
         </div>
       );
     })}
