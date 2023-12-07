@@ -67,7 +67,7 @@ const SignIn = () => {
             isValid = false;
             setValidationErrors((prevErrors) => ({
               ...prevErrors,
-              password: 'Email Id not Registered',
+              email: 'Email Id not Registered',
             }));
           }
         })
