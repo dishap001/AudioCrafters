@@ -7,12 +7,16 @@ const AudioRecorder = () => {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const [streamRecording,setStreamRecording] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [recordingDuration, setRecordingDuration] = useState(0);
 
   const startRecording = async () => {
     
    try {
           const stream = await navigator.mediaDevices.getUserMedia({audio:true});
           const mediaRecorder = new MediaRecorder(stream);
+
+            // Reset the audioChunk array for a new recording
+           audioChunk.current = [];
           
           mediaRecorder.ondataavailable = (e) => 
           {
@@ -27,12 +31,31 @@ const AudioRecorder = () => {
             const audioUrl = URL.createObjectURL(audioBlob);
 
             setRecordings((prevRecs ) => [...prevRecs , audioUrl ]);
+            setRecordingDuration(0);
+            
           };
           mediaRecorderRef.current = mediaRecorder;
           mediaRecorder.start(); //it will start recording as soon as it allows
           setStreamRecording(true);
 
-        }catch (error) {
+          
+      // Update recording duration every second
+
+          const timer = setInterval(() => {
+            setRecordingDuration((prevDuration) => prevDuration + 1);
+          }, 1000);
+    
+          mediaRecorder.onpause = () => {
+            clearInterval(timer);
+          };
+    
+          mediaRecorder.onresume = () => {
+            setInterval(() => {
+              setRecordingDuration((prevDuration) => prevDuration + 1);
+            }, 1000);
+          }        }
+      
+        catch (error) {
       console.error("Error accessing microphone:", error);
     }
       
@@ -89,6 +112,12 @@ const AudioRecorder = () => {
       <button onClick={stopRecording} disabled={!streamRecording}>
         Stop Recording
       </button>
+      {streamRecording && (
+        <div>
+          <p>Recording Time: {recordingDuration} seconds</p>
+          <progress max="100" value={(recordingDuration / 10) * 10}></progress>
+        </div>
+      )}
 
     {
       recordings.map((recUrl ,index)=> {
