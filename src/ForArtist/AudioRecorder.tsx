@@ -138,18 +138,34 @@ const AudioRecorder = () => {
       Stop Recording
     </button>
 
-    {recordings.map((recUrl, index) => {
-      return (
-        <div key={index}>
-          <audio controls src={recUrl} />
-          <button><a href={recUrl} download>
-            Download
-          </a></button>
-          <button onClick={() => deleteRecording(index)}>Delete</button>
-    
-        </div>
-      );
-    })}
+
+<table>
+          <thead>
+            <tr>
+              <th>Sr. No</th>
+              <th>Recording</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {recordings.map((recUrl, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>
+                  <audio controls src={recUrl} />
+                </td>
+                <td>
+                  <button>
+                    <a href={recUrl} download>
+                      Download
+                    </a>
+                  </button>
+                  <button onClick={() => deleteRecording(index)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
   </div>
   </>
   )
