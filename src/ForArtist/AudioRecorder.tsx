@@ -1,4 +1,4 @@
-
+import "./AudioRecorder.css"; 
 import { useRef, useState }  from "react";
 
 const AudioRecorder = () => {
@@ -8,6 +8,7 @@ const AudioRecorder = () => {
   const [streamRecording,setStreamRecording] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [recordingDuration, setRecordingDuration] = useState(0);
+  const timerRef = useRef<number | null>(null);
 
   const startRecording = async () => {
     
@@ -20,7 +21,7 @@ const AudioRecorder = () => {
           
           mediaRecorder.ondataavailable = (e) => 
           {
-            if (e.data.size > 0) {
+            if (e.data.size > 0) { 
               //save the data
               audioChunk.current.push(e.data);
             }
@@ -30,8 +31,9 @@ const AudioRecorder = () => {
             const audioBlob = new Blob(audioChunk.current,{ type:'audio/wav' });
             const audioUrl = URL.createObjectURL(audioBlob);
 
-            setRecordings((prevRecs ) => [...prevRecs , audioUrl ]);
+            setRecordings((prevRecs ) => [ audioUrl,...prevRecs  ]);
             setRecordingDuration(0);
+            clearInterval(timerRef.current!); 
             
           };
           mediaRecorderRef.current = mediaRecorder;
@@ -41,19 +43,21 @@ const AudioRecorder = () => {
           
       // Update recording duration every second
 
-          const timer = setInterval(() => {
-            setRecordingDuration((prevDuration) => prevDuration + 1);
-          }, 1000);
-    
+      timerRef.current = window.setInterval(() => {
+        setRecordingDuration((prevDuration) => prevDuration + 1);
+      }, 1000);
           mediaRecorder.onpause = () => {
-            clearInterval(timer);
+            clearInterval(timerRef.current!);
           };
     
           mediaRecorder.onresume = () => {
-            setInterval(() => {
+            // Resume the existing timer
+            clearInterval(timerRef.current!);
+            timerRef.current = window.setInterval(() => {
               setRecordingDuration((prevDuration) => prevDuration + 1);
             }, 1000);
-          }        }
+          }        
+        }
       
         catch (error) {
       console.error("Error accessing microphone:", error);
@@ -67,6 +71,7 @@ const AudioRecorder = () => {
          mediaRecorderRef.current.state === 'recording'){
         mediaRecorderRef.current.stop();
         setStreamRecording(false);
+        clearInterval(timerRef.current!);
       }
 
     }catch (error) {
@@ -78,6 +83,7 @@ const AudioRecorder = () => {
       if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
         mediaRecorderRef.current.pause();
         setIsPaused(true);
+        clearInterval(timerRef.current!);
       }
     } catch (error) {
       console.error("Error pausing recording:", error);
@@ -89,6 +95,11 @@ const AudioRecorder = () => {
       if (mediaRecorderRef.current && mediaRecorderRef.current.state === "paused") {
         mediaRecorderRef.current.resume();
         setIsPaused(false);
+
+          // Resume the existing timer
+      timerRef.current = window.setInterval(() => {
+        setRecordingDuration((prevDuration) => prevDuration + 1);
+      }, 1000);
       }
     } catch (error) {
       console.error("Error resuming recording:", error);
@@ -98,38 +109,42 @@ const AudioRecorder = () => {
 
   return (
     <>
+    <div className="audio-recorder-container">
     <h3>Audio Recording Feature</h3>
-    
-     <button onClick={startRecording} disabled={streamRecording}>
-        Start Recording
-      </button>
-      <button onClick={pauseRecording} disabled={!streamRecording || isPaused}>
-        Pause Recording
-      </button>
-      <button onClick={resumeRecording} disabled={!streamRecording || !isPaused}>
-        Resume Recording
-      </button>
-      <button onClick={stopRecording} disabled={!streamRecording}>
-        Stop Recording
-      </button>
+    <div>
+      <p>Recording Time: {recordingDuration} seconds</p>
       {streamRecording && (
-        <div>
-          <p>Recording Time: {recordingDuration} seconds</p>
-          <progress max="100" value={(recordingDuration / 10) * 10}></progress>
-        </div>
+        <progress max="100" value={(recordingDuration / 10) * 10}></progress>
       )}
+    </div>
+    <button onClick={startRecording} disabled={streamRecording}>
+      Start Recording
+    </button>
+    <button onClick={pauseRecording} disabled={!streamRecording || isPaused}>
+      Pause Recording
+    </button>
+    <button
+      onClick={resumeRecording}
+      disabled={!streamRecording || !isPaused}
+    >
+      Resume Recording
+    </button>
+    <button onClick={stopRecording} disabled={!streamRecording}>
+      Stop Recording
+    </button>
 
-    {
-      recordings.map((recUrl ,index)=> {
-        return(
-         <div key ={index}>
-            <audio controls src={recUrl}/>
-            <a href = {recUrl} download>Download</a>
-         </div>
-        )
-      })
-    }
-    </>
+    {recordings.map((recUrl, index) => {
+      return (
+        <div key={index}>
+          <audio controls src={recUrl} />
+          <a href={recUrl} download>
+            Download
+          </a>
+        </div>
+      );
+    })}
+  </div>
+  </>
   )
 }
 
