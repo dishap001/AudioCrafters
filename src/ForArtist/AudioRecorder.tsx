@@ -1,88 +1,79 @@
-import "./AudioRecorder.css"; 
-import { useRef, useState }  from "react";
+
+import { useRef, useState } from "react";
+import { Button, ProgressBar, Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./AudioRecorder.css";
 
 const AudioRecorder = () => {
   const audioChunk = useRef<Blob[]>([]);
-  const [recordings,setRecordings] = useState<string[]>([]);
+  const [recordings, setRecordings] = useState<string[]>([]);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const [streamRecording,setStreamRecording] = useState(false);
+  const [streamRecording, setStreamRecording] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [recordingDuration, setRecordingDuration] = useState(0);
   const timerRef = useRef<number | null>(null);
 
   const startRecording = async () => {
-    
-   try {
-          const stream = await navigator.mediaDevices.getUserMedia({audio:true});
-          const mediaRecorder = new MediaRecorder(stream);
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
 
-            // Reset the audioChunk array for a new recording
-           audioChunk.current = [];
-          
-          mediaRecorder.ondataavailable = (e) => 
-          {
-            if (e.data.size > 0) { 
-              //save the data
-              audioChunk.current.push(e.data);
-            }
-          };
+      // Reset the audioChunk array for a new recording
+      audioChunk.current = [];
 
-          mediaRecorder.onstop = () =>{
-            const audioBlob = new Blob(audioChunk.current,{ type:'audio/wav' });
-            const audioUrl = URL.createObjectURL(audioBlob);
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) {
+          // save the data
+          audioChunk.current.push(e.data);
+        }
+      };
 
-           setRecordings((prevRecs ) => [ audioUrl,...prevRecs  ]);
-        
-            setRecordingDuration(0);
-            clearInterval(timerRef.current!); 
-            
-         
-          };
-          mediaRecorderRef.current = mediaRecorder;
-          mediaRecorder.start(); //it will start recording as soon as it allows
-          setStreamRecording(true);
+      mediaRecorder.onstop = () => {
+        const audioBlob = new Blob(audioChunk.current, { type: "audio/wav" });
+        const audioUrl = URL.createObjectURL(audioBlob);
 
-          
+        setRecordings((prevRecs) => [audioUrl, ...prevRecs]);
+
+        setRecordingDuration(0);
+        clearInterval(timerRef.current!);
+
+        setIsPaused(false);
+        setStreamRecording(false);
+      };
+
+      mediaRecorderRef.current = mediaRecorder;
+      mediaRecorder.start(); // it will start recording as soon as it allows
+      setStreamRecording(true);
+
       // Update recording duration every second
-
       timerRef.current = window.setInterval(() => {
         setRecordingDuration((prevDuration) => prevDuration + 1);
       }, 1000);
-          mediaRecorder.onpause = () => {
-            clearInterval(timerRef.current!);
-          };
-    
-          mediaRecorder.onresume = () => {
-            // Resume the existing timer
-            clearInterval(timerRef.current!);
-            timerRef.current = window.setInterval(() => {
-              setRecordingDuration((prevDuration) => prevDuration + 1);
-            }, 1000);
-          }        
-        }
-      
-        catch (error) {
+    } catch (error) {
       console.error("Error accessing microphone:", error);
     }
-      
   };
 
   const stopRecording = () => {
-    try{
-      if (mediaRecorderRef.current  &&
-         mediaRecorderRef.current.state === 'recording'){
+    try {
+      if (
+        mediaRecorderRef.current &&
+        mediaRecorderRef.current.state === "recording"
+      ) {
         mediaRecorderRef.current.stop();
-        setStreamRecording(false);
         clearInterval(timerRef.current!);
       }
-
-    }catch (error) {
-      console.error("Error stoping microphone:", error);
+    } catch (error) {
+      console.error("Error stopping microphone:", error);
     }
   };
+
   const pauseRecording = () => {
     try {
-      if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
+      if (
+        mediaRecorderRef.current &&
+        mediaRecorderRef.current.state === "recording"
+      ) {
         mediaRecorderRef.current.pause();
         setIsPaused(true);
         clearInterval(timerRef.current!);
@@ -94,52 +85,73 @@ const AudioRecorder = () => {
 
   const resumeRecording = () => {
     try {
-      if (mediaRecorderRef.current && mediaRecorderRef.current.state === "paused") {
+      if (
+        mediaRecorderRef.current &&
+        mediaRecorderRef.current.state === "paused"
+      ) {
         mediaRecorderRef.current.resume();
         setIsPaused(false);
 
-          // Resume the existing timer
-      timerRef.current = window.setInterval(() => {
-        setRecordingDuration((prevDuration) => prevDuration + 1);
-      }, 1000);
+        // Resume the existing timer
+        timerRef.current = window.setInterval(() => {
+          setRecordingDuration((prevDuration) => prevDuration + 1);
+        }, 1000);
       }
     } catch (error) {
       console.error("Error resuming recording:", error);
     }
   };
-  const deleteRecording = (indexToDelete:number) => {
-    setRecordings((prevRecs) => prevRecs.filter((_, index) => index !== indexToDelete));
+
+  const deleteRecording = (indexToDelete: number) => {
+    setRecordings((prevRecs) =>
+      prevRecs.filter((_, index) => index !== indexToDelete)
+    );
   };
-  
 
   return (
     <>
-    <div className="audio-recorder-container">
-    <h3>Audio Recording Feature</h3>
-   
+      <div className="audio-recorder-container">
+        <h3>Audio Recording Feature</h3>
 
-<div className="recording-info">
-        <p>Recording Time: {recordingDuration} seconds</p>
-        <progress max="100" value={(recordingDuration / 10) * 10}></progress>
-      </div>
-    <button onClick={startRecording} disabled={streamRecording}>
-      Start Recording
-    </button>
-    <button onClick={pauseRecording} disabled={!streamRecording || isPaused}>
-      Pause Recording
-    </button>
-    <button
-      onClick={resumeRecording}
-      disabled={!streamRecording || !isPaused}
-    >
-      Resume Recording
-    </button>
-    <button onClick={stopRecording} disabled={!streamRecording}>
-      Stop Recording
-    </button>
+        <div className="recording-info">
+          <p>Recording Time: {recordingDuration} seconds</p>
+          <ProgressBar
+            now={(recordingDuration / 60) * 100}
+            label={`${recordingDuration}s`}
+          />
+        </div>
+        <div className="Button-Actions">
+        <Button
+          variant="primary"
+          onClick={startRecording}
+          disabled={streamRecording}
+        >
+          Start Recording
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={pauseRecording}
+          disabled={!streamRecording || isPaused}
+        >
+          Pause Recording
+        </Button>
+        <Button
+          variant="success"
+          onClick={resumeRecording}
+          disabled={!streamRecording || !isPaused}
+        >
+          Resume Recording
+        </Button>
+        <Button
+          variant="danger"
+          onClick={stopRecording}
+          disabled={!streamRecording}
+        >
+          Stop Recording
+        </Button>
+        </div>
 
-
-<table>
+        <Table striped bordered hover>
           <thead>
             <tr>
               <th>Sr. No</th>
@@ -155,20 +167,25 @@ const AudioRecorder = () => {
                   <audio controls src={recUrl} />
                 </td>
                 <td>
-                  <button>
-                    <a href={recUrl} download>
+                  <Button variant="primary">
+                    <a href={recUrl} download style={{ color: "white" }}>
                       Download
                     </a>
-                  </button>
-                  <button onClick={() => deleteRecording(index)}>Delete</button>
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() => deleteRecording(index)}
+                  >
+                    Delete
+                  </Button>
                 </td>
               </tr>
             ))}
           </tbody>
-        </table>
-  </div>
-  </>
-  )
-}
+        </Table>
+      </div>
+    </>
+  );
+};
 
 export default AudioRecorder;
