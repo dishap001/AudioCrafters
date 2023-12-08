@@ -90,5 +90,51 @@
       "password": "alisha12345",
       "id": 5
     }
+  ],
+  "UploadedAudio": [
+    {
+      "id": 1,
+      "name": "Audio File 1",
+      "uploadDateTime": "2023-12-08T08:00:00Z",
+      "url": "https://your-audio-server.com/audio-file-1.mp3"
+    },
+    {
+      "id": 2,
+      "name": "Audio File 2",
+      "uploadDateTime": "2023-12-08T09:30:00Z",
+      "url": "https://your-audio-server.com/audio-file-2.mp3"
+    },
+    {
+      "id": 3,
+      "name": "Calm-Down---Selena-Gomez(musicdownload.cc).mp3",
+      "uploadDateTime": "2023-12-08T11:15:00Z",
+      "url": "https://your-audio-server.com/audio-file-3.mp3"
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    }
+  ],
+  "uploads": [
+    {
+      "id": "32a5ebd9-2e2f-4c91-ac82-3c318978174e",
+      "name": "Calm-Down---Selena-Gomez(musicdownload.cc).mp3",
+      "url": "blob:http://localhost:5173/69f95411-306b-4ea2-aae3-8de630778119",
+      "time": "08/12/2023, 17:21:57"
+    }
   ]
 }
