@@ -87,6 +87,17 @@ const FileUpload: React.FC = () => {
     }
   };
 
+  const handleDelete = async (id: string) => {
+    try {
+      const response = await axios.delete(`http://localhost:3000/uploads/${id}`);
+      console.log('File deleted successfully:', response.data);
+
+      setUploadedFiles((prevFiles) => prevFiles.filter(file => file.id !== id));
+    } catch (error) {
+      console.error('Error deleting file:', error);
+    }
+  };
+
   return (
     <div>
       <button onClick={handleClick}>{buttonName}</button>
@@ -102,6 +113,7 @@ const FileUpload: React.FC = () => {
             <th>URL</th>
             <th>Time</th>
             <th>Actions</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -116,6 +128,9 @@ const FileUpload: React.FC = () => {
               <td>
                 <button onClick={() => setAudioURL(file.url)}>Play</button>
                 <button onClick={handleClick}>Pause</button>
+              </td>
+              <td>
+                <button onClick={() => handleDelete(file.id)}>Delete</button>
               </td>
             </tr>
           ))}
