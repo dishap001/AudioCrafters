@@ -34,7 +34,7 @@ const FileUpload: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/uploads');
+      const response = await axios.get('http://localhost:3000/data.json');
       setUploadedFiles(response.data);
     } catch (error) {
       console.error('Error fetching data from the server:', error);
@@ -109,9 +109,9 @@ const FileUpload: React.FC = () => {
             <tr key={file.id}>
               <td>{index + 1}</td>
               <td>{file.name}</td>
-              <td><a href={file.url}>To PLay</a></td>
-              
-             
+              <td> <audio controls>
+                <source src={file.url} type="audio/mpeg" />
+              </audio></td>
               <td>{file.time}</td>
               <td>
                 <button onClick={() => setAudioURL(file.url)}>Play</button>

@@ -91,50 +91,37 @@
       "id": 5
     }
   ],
-  "UploadedAudio": [
-    {
-      "id": 1,
-      "name": "Audio File 1",
-      "uploadDateTime": "2023-12-08T08:00:00Z",
-      "url": "https://your-audio-server.com/audio-file-1.mp3"
-    },
-    {
-      "id": 2,
-      "name": "Audio File 2",
-      "uploadDateTime": "2023-12-08T09:30:00Z",
-      "url": "https://your-audio-server.com/audio-file-2.mp3"
-    },
-    {
-      "id": 3,
-      "name": "Calm-Down---Selena-Gomez(musicdownload.cc).mp3",
-      "uploadDateTime": "2023-12-08T11:15:00Z",
-      "url": "https://your-audio-server.com/audio-file-3.mp3"
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 9
-    }
-  ],
+  "UploadedAudio": [],
   "uploads": [
     {
-      "id": "32a5ebd9-2e2f-4c91-ac82-3c318978174e",
+      "id": "1df65770-08bb-44d4-8a19-7b93e0a311df",
       "name": "Calm-Down---Selena-Gomez(musicdownload.cc).mp3",
-      "url": "blob:http://localhost:5173/69f95411-306b-4ea2-aae3-8de630778119",
-      "time": "08/12/2023, 17:21:57"
+      "url": "blob:http://localhost:5173/1abc3fbb-8cfe-48c3-8098-64343a7ad264",
+      "time": "09/12/2023, 12:24:14"
+    },
+    {
+      "id": "8c26d6eb-9a10-47df-9664-3a68613e4688",
+      "name": "Calm-Down---Selena-Gomez(musicdownload.cc).mp3",
+      "url": "blob:http://localhost:5173/7e553574-cab2-452d-ace5-26f8c6df7df2",
+      "time": "09/12/2023, 12:26:42"
+    },
+    {
+      "id": "aec09511-6e8e-4fac-9b96-2b381bca2ceb",
+      "name": "Calm-Down---Selena-Gomez(musicdownload.cc).mp3",
+      "url": "blob:http://localhost:5173/8ac3df0e-63af-4b8f-9669-f1a37a8308dc",
+      "time": "09/12/2023, 12:29:25"
+    },
+    {
+      "id": "0ee991ef-e518-4bcf-80f2-2f036443c7e1",
+      "name": "Calm-Down---Selena-Gomez(musicdownload.cc).mp3",
+      "url": "blob:http://localhost:5173/f0bd37b9-6b99-4392-8c1c-c71757645522",
+      "time": "09/12/2023, 12:30:23"
+    },
+    {
+      "id": "3820ec7c-3920-428c-a960-0a01404c5c41",
+      "name": "Calm-Down---Selena-Gomez(musicdownload.cc).mp3",
+      "url": "blob:http://localhost:5173/23962b63-06f1-4c15-b4e8-b1eaf65f7c41",
+      "time": "09/12/2023, 12:31:23"
     }
   ]
 }
