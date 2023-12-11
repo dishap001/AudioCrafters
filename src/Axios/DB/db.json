@@ -103,5 +103,14 @@
       "id": 6
     }
   ],
-  "UploadedAudio": []
+  "UploadedAudio": [
+    {
+      "id": "d8d23122-1085-4b1c-9785-dbffe358f92e",
+      "name": "Calm-Down---Selena-Gomez(musicdownload.cc) (1).mp3",
+      "url": "blob:http://localhost:5173/08b44645-decb-401e-b7e8-fb4003ce3e50",
+      "time": "11/12/2023, 17:21:52",
+      "genre": "Jazz",
+      "artist": "hljh"
+    }
+  ]
 }

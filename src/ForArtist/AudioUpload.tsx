@@ -2,6 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
+
 interface UploadedFile {
   id: string;
   name: string;
@@ -17,16 +18,27 @@ const AudioUpload: React.FC = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [artistName, setArtistName] = useState<string>('');
   const [selectedGenre, setSelectedGenre] = useState<string>('');
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/data.json');
-      setUploadedFiles(response.data);
-    } catch (error) {
-      console.error('Error fetching data from the server:', error);
-    }
-  };
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await axios.get('http://localhost:3000/data.json');
+  //     setUploadedFiles(response.data);
+  //   } catch (error) {
+  //     console.error('Error fetching data from the server:', error);
+  //   }
+  // };
 
   useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/UploadedAudio');
+        setUploadedFiles(response.data);
+        console.log(uploadedFiles);
+        console.log('Data from the server:', response.data);
+      } catch (error) {
+        console.error('Error fetching data from the server:', error);
+      }
+    };
     fetchData();
   }, []);
 
@@ -58,6 +70,8 @@ const AudioUpload: React.FC = () => {
       try {
         const response = await axios.post('http://localhost:3000/UploadedAudio', newFile);
         console.log('File details sent to the server successfully:', response.data);
+
+
       } catch (error) {
         console.error('Error sending file details to the server:', error);
       }
@@ -149,6 +163,7 @@ const AudioUpload: React.FC = () => {
           ))}
         </tbody>
       </table>
+
     </div>
   );
 };
