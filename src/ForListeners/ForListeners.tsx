@@ -1,7 +1,10 @@
+import Player from "../Player/Player"
 
 function ForListeners() {
   return (
-    <div>ForListeners</div>
+    <>
+    <Player/>
+    </>
   )
 }
 

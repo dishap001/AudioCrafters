@@ -1,11 +1,10 @@
 // import AudioRecorder from "./AudioRecorder"
-// import AudioUploadForm from "./AudioUploadForm"
-import FileUpload from "../Axios/eg/FileUpload"
+import AudioUpload from "./AudioUpload"
+
 function ForArtists() {
   return (
     <>
-    <FileUpload/>
-    {/* <AudioUploadForm/> */}
+    <AudioUpload/>
     <div>ForArtists</div>
     {/* <AudioRecorder/> */}
     </>

@@ -62,6 +62,13 @@
       "password": "alisha12345",
       "confirmPassword": "alisha12345",
       "id": 9
+    },
+    {
+      "name": "Siddharth",
+      "email": "Sid@gmail.com",
+      "password": "sid123",
+      "confirmPassword": "sid123",
+      "id": 10
     }
   ],
   "SignedInUsers": [
@@ -89,8 +96,12 @@
       "email": "Alisha@16gmail.com",
       "password": "alisha12345",
       "id": 5
+    },
+    {
+      "email": "Sid@gmail.com",
+      "password": "sid123",
+      "id": 6
     }
   ],
-  "UploadedAudio": [],
-  "uploads": []
+  "UploadedAudio": []
 }
