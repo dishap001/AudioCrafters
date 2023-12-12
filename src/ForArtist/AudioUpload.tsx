@@ -108,7 +108,9 @@ const AudioUpload: React.FC = () => {
               <option value="Jazz">Jazz</option>
               <option value="Pop">Pop</option>
               <option value="Classic">Classic</option>
-              {/* Add more genre options as needed */}
+              <option value="Rock">Rock</option>
+              <option value="EDM">EDM</option>
+              <option value="Rap">Rap</option>
             </select>
           </label>
           <label>

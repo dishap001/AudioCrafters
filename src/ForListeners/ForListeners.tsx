@@ -4,28 +4,58 @@ import AudioPlayer from '../Player/AudioPlayer';
 
 import UserServices from '../Axios/UserServices';
 
+interface AudioFile {
+  url: string;
+  name: string;
+  genre: string;
+}
+
 function ForListeners() {
-  const [fetchedFiles, setFetchedFiles] = useState<{ url: string ,name :string}[]>([]);
+  const [allFiles, setAllFiles] = useState<AudioFile[]>([]);
+  const [displayedFiles, setDisplayedFiles] = useState<AudioFile[]>([]);
+  const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
   const userServices = UserServices();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Replace 'your-api-endpoint' with the actual endpoint to fetch data from
         const response = await userServices().getUploadedAudio();
-        setFetchedFiles(response.data);
+        const files: AudioFile[] = response.data;
+        setAllFiles(files);
+        filterFilesByGenre(files, selectedGenre);
       } catch (error) {
         console.error('Error fetching data from the server:', error);
       }
     };
 
     fetchData();
-  }, []); 
+  }, [selectedGenre]);
+
+  const filterFilesByGenre = (files: AudioFile[], genre: string | null) => {
+    const filteredFiles = genre ? files.filter(file => file.genre === genre) : files;
+    setDisplayedFiles(filteredFiles);
+  };
+
+  const handleGenreClick = (genre: string | null) => {
+    setSelectedGenre(genre);
+    filterFilesByGenre(allFiles, genre);
+  };
 
   return (
     <div>
-      {/* Display the fetched audio files */}
-      {fetchedFiles.map((file, index) => (
-        <AudioPlayer key={index} audioSrc={file.url} audioName={file.name}/>
+      <div>
+        <button onClick={() => handleGenreClick('Jazz')}>Jazz</button>
+        <button onClick={() => handleGenreClick('Pop')}>Pop</button>
+        <button onClick={() => handleGenreClick('Classic')}>Classic</button>
+        <button onClick={() => handleGenreClick('Rock')}>Rock</button>
+        <button onClick={() => handleGenreClick('EDM')}>EDM</button>
+        <button onClick={() => handleGenreClick('Rap')}>Rap</button>
+        {/* Add more genre buttons as needed */}
+        <button onClick={() => handleGenreClick(null)}>Show All</button>
+      </div>
+      {/* Display the filtered audio files */}
+      {displayedFiles.map((file, index) => (
+        <AudioPlayer key={index} audioSrc={file.url} audioName={file.name} />
       ))}
     </div>
   );
