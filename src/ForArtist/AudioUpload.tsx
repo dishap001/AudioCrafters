@@ -1,8 +1,10 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-// import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import UserServices from '../Axios/UserServices';
+import { Table, Button, Form, Container, Row, Col} from 'react-bootstrap';
 
+
+import UserServices from '../Axios/UserServices';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface UploadedFile {
   id: string;
@@ -14,7 +16,6 @@ interface UploadedFile {
 }
 
 const AudioUpload: React.FC = () => {
-
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -41,9 +42,10 @@ const AudioUpload: React.FC = () => {
     }
   };
 
-  const handleGenreChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleGenreChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedGenre(e.target.value);
   };
+  
 
   const handleArtistChange = (e: ChangeEvent<HTMLInputElement>) => {
     setArtistName(e.target.value);
@@ -92,18 +94,29 @@ const AudioUpload: React.FC = () => {
     }
   };
 
-  return (
-    <div>
-      <button onClick={() => setIsFormVisible(!isFormVisible)}>
-        {isFormVisible ? 'X' : 'New Project'}
-      </button>
 
-      {isFormVisible && (
-        <div>
-          <input type="file" onChange={handleFileChange} />
-          <label>
-            Genre:
-            <select value={selectedGenre} onChange={handleGenreChange}>
+  return (
+    <Container fluid className="d-flex flex-column align-items-center justify-content-center">
+      <div className="my-4"> {/* Add margin for spacing */}
+      <Row className="mb-3">
+        <Col className="d-flex justify-content-right">
+          <Button variant="primary" onClick={() => setIsFormVisible(!isFormVisible)}>
+            {isFormVisible ? 'Back' : 'New Project'}
+          </Button>
+        </Col>
+      
+      </Row>
+  {isFormVisible && (
+    <Row>
+      <Col>
+        <Form>
+          <Form.Group controlId="audioFile">
+            <Form.Label>Choose audio file</Form.Label>
+            <Form.Control type="file" onChange={handleFileChange} />
+          </Form.Group>
+          <Form.Group controlId="genreSelect">
+            <Form.Label>Genre</Form.Label>
+            <Form.Control as="select" value={selectedGenre} onChange={handleGenreChange}>
               <option value="">Select Genre</option>
               <option value="Jazz">Jazz</option>
               <option value="Pop">Pop</option>
@@ -111,59 +124,69 @@ const AudioUpload: React.FC = () => {
               <option value="Rock">Rock</option>
               <option value="EDM">EDM</option>
               <option value="Rap">Rap</option>
-            </select>
-          </label>
-          <label>
-            Artist:
-            <input type="text" value={artistName} onChange={handleArtistChange} />
-          </label>
-          <button onClick={handleUpload}>Upload</button>
-        </div>
-      )}
+            </Form.Control>
+          </Form.Group>
+          <Form.Group controlId="artistName">
+            <Form.Label>Artist</Form.Label>
+            <Form.Control type="text" value={artistName} onChange={handleArtistChange} />
+          </Form.Group>
+          <div className="d-flex justify-content-center"> {/* Center the button */}
+            <Button variant="primary" onClick={handleUpload}>
+              Upload
+            </Button>
+          </div>
+        </Form>
+      </Col>
+    </Row>
+  )}
+</div>
 
       {/* Display the table of uploaded audio files */}
-      <table>
-        <thead>
-          <tr>
-            <th>Sr Num</th>
-            <th>Artist</th>
-            <th>Audio Name</th>
-            <th>URL</th>
-            <th>Time</th>
-            <th>Genre</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {uploadedFiles.map((file, index) => (
-            <tr key={file.id}>
-              <td>{index + 1}</td>
-              <td>{file.artist}</td>
-              <td>{file.name}</td>
-              <td>
-                {' '}
-                <audio controls>
-                  <source src={file.url} type="audio/mpeg" />
-                </audio>
-              </td>
-              <td>{file.time}</td>
-              <td>{file.genre}</td>
-              <td>
-              <button onClick={() => handleDownload(file.url, file.name)}>Download</button>
-                <button onClick={() => handleDelete(file.id)}>Delete</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-    </div>
+      <Row>
+        <Col>
+        <div className="table-responsive">
+          <Table >
+            <thead>
+              <tr>
+                <th>Sr Num</th>
+                <th>Artist</th>
+                <th>Audio Name</th>
+                <th>URL</th>
+                <th>Time</th>
+                <th>Genre</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {uploadedFiles.map((file, index) => (
+                <tr key={file.id}>
+                  <td>{index + 1}</td>
+                  <td>{file.artist}</td>
+                  <td>{file.name}</td>
+                  <td>
+                    <audio controls>
+                      <source src={file.url} type="audio/mpeg" />
+                    </audio>
+                  </td>
+                  <td>{file.time}</td>
+                  <td>{file.genre}</td>
+                  <td>
+                    <Button variant="primary" onClick={() => handleDownload(file.url, file.name)}>
+                      Download
+                    </Button>
+                    <Button variant="danger" onClick={() => handleDelete(file.id)}>
+                      Delete
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
-
-
-
-
-
 
 export default AudioUpload;

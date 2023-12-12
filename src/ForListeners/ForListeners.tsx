@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import AudioPlayer from '../Player/AudioPlayer';
-
 import UserServices from '../Axios/UserServices';
+import { Button, Row, Col } from 'react-bootstrap';
+
 
 interface AudioFile {
   url: string;
@@ -45,26 +46,65 @@ function ForListeners() {
   };
 
   return (
-    <div>
-      <div>
-        <button onClick={() => handleGenreClick('Jazz')}>Jazz</button>
-        <button onClick={() => handleGenreClick('Pop')}>Pop</button>
-        <button onClick={() => handleGenreClick('Classic')}>Classic</button>
-        <button onClick={() => handleGenreClick('Rock')}>Rock</button>
-        <button onClick={() => handleGenreClick('EDM')}>EDM</button>
-        <button onClick={() => handleGenreClick('Rap')}>Rap</button>
-        {/* Add more genre buttons as needed */}
-        <button onClick={() => handleGenreClick(null)}>Show All</button>
-      </div>
-      {/* Display the filtered audio files or a message */}
+    <div className="text-center">
+      <Row className="justify-content-center mb-2">
+        <Col xs="auto">
+          {" "}
+          <Button onClick={() => handleGenreClick("Jazz")}>Jazz</Button>{" "}
+        </Col>
+        <Col xs="auto">
+          {" "}
+          <Button onClick={() => handleGenreClick("Pop")}>Pop</Button>{" "}
+        </Col>
+        <Col xs="auto">
+          {" "}
+          <Button onClick={() => handleGenreClick("Classic")}>
+            Classic
+          </Button>{" "}
+        </Col>
+        <Col xs="auto">
+          <Button onClick={() => handleGenreClick("Rock")}>Rock</Button>
+        </Col>
+        <Col xs="auto">
+          {" "}
+          <Button onClick={() => handleGenreClick("EDM")}>EDM</Button>{" "}
+        </Col>
+        <Col xs="auto">
+          {" "}
+          <Button onClick={() => handleGenreClick("Rap")}>Rap</Button>{" "}
+        </Col>
+        <Col xs="auto">
+          {" "}
+          <Button onClick={() => handleGenreClick(null)}>Show All</Button>{" "}
+        </Col>
+      </Row>
+      {/* Display the filtered audio files in a grid */}
       {loading ? (
-        <p>Loading...</p>
+        <div className="text-center mt-4">
+          <p style={{
+              fontSize: "18px",
+              color: "#555",
+              fontWeight: "bold",
+              fontFamily: "Montserrat, sans-serif",
+            }} > Loading... </p>
+        </div>
       ) : displayedFiles.length === 0 ? (
-        <p>No music available</p>
+        <div className="text-center mt-4">
+          <p style={{
+              fontSize: "18px",
+              color: "#555",
+              fontWeight: "bold",
+              fontFamily: "Montserrat, sans-serif",
+            }} > No music available</p>
+        </div>
       ) : (
-        displayedFiles.map((file, index) => (
-          <AudioPlayer key={index} audioSrc={file.url} audioName={file.name} />
-        ))
+        <Row className="justify-content-center">
+          {displayedFiles.map((file, index) => (
+            <Col key={index} xs={12} md={6} lg={4}>
+              <AudioPlayer audioSrc={file.url} audioName={file.name} />
+            </Col>
+          ))}
+        </Row>
       )}
     </div>
   );
