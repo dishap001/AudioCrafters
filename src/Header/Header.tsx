@@ -1,31 +1,26 @@
-// import { Link } from "react-router-dom"
 
-// function Header() {
-//   return (
-//    <>
-//    <div className="Header">
-//    <nav>
-//         <ul className="Menu"><li><Link to='/'>Home</Link></li></ul>
-//     </nav>
-//     <ul className="UserRegistration" >
-//                 <li><Link to='/SignUp'>Sign up</Link></li>
-//                 <li><Link to='/SignIn'>Sign In</Link></li>
-//      </ul>
-//    </div>
-   
-//    </>
-//   )
-// }
-
-// export default Header
-
-
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import logo from "../assets/logo.svg";
 import "./Header.css";
+import { useEffect, useState } from "react";
 
 function Header() {
+  const [signedIn,setSignedIn] =useState(false);
+
+  const navigate = useNavigate();
+  const checkSignIn =()=>{
+    const storedUser = localStorage.getItem('isSignIn');
+    setSignedIn(storedUser);
+  }
+
+  useEffect(()=>{
+checkSignIn();
+  },[]);
+  const SignOut = () => {
+    localStorage.removeItem('isSignIn');
+    navigate('/');
+  };
   return (
     <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect >
       <Navbar.Brand as={Link} to="/">
@@ -44,9 +39,12 @@ function Header() {
           <Nav.Link as={Link} to="/">
             Home
           </Nav.Link>
-          <Nav.Link as={Link} to="/ForArtists">
-            For Artists
-          </Nav.Link>
+
+        { signedIn &&( <>
+                  <Nav.Link as={Link} to="/ForArtists">
+                    For Artists
+                  </Nav.Link></>)}
+
           <Nav.Link as={Link} to="/ForListeners">
             For Listeners
           </Nav.Link>
@@ -58,6 +56,11 @@ function Header() {
           <Nav.Link as={Link} to="/SignIn">
             Sign In
           </Nav.Link>
+          <Nav.Link as={Link} to="/SignIn" onClick={SignOut}>
+            Sign Out
+          </Nav.Link>
+          
+          
         </Nav>
       </Navbar.Collapse>
     </Navbar>

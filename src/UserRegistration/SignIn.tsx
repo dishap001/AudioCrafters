@@ -32,7 +32,7 @@ const SignIn = () => {
     password: Yup.string().required('Password is required'),
   });
 
-
+ 
   const handleSubmit = async () => {
     try {
       let isValid = true;
@@ -48,8 +48,10 @@ const SignIn = () => {
           if (RegisteredUsers.email === formData.email) {
             emailFound = true;
             if (RegisteredUsers.password === formData.password) {
+              localStorage.setItem("isSignIn",JSON.stringify(formData.email))
               alert('Sign In Successful');
               navigate('/');
+              
               // Use addSignedInUser method from UserServices
               await userServices().addSignedInUser({
                 email: formData.email,
@@ -78,7 +80,10 @@ const SignIn = () => {
       // Handle the error as needed
     }
   };
+  
+  
   const {
+    
     values,
     errors,
     touched,
@@ -142,6 +147,7 @@ const SignIn = () => {
                 Sign In
               </Button>
             </Form.Group>
+            
             <div className="signup-link text-center">
             <p>
               Don't have an account? <Link to="/signup">Sign Up</Link>
