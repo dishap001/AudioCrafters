@@ -101,16 +101,21 @@
       "email": "Sid@gmail.com",
       "password": "sid123",
       "id": 6
+    },
+    {
+      "email": "jane@example.com",
+      "password": "janes_password",
+      "id": 7
     }
   ],
   "UploadedAudio": [
     {
-      "id": "d8d23122-1085-4b1c-9785-dbffe358f92e",
-      "name": "Calm-Down---Selena-Gomez(musicdownload.cc) (1).mp3",
-      "url": "blob:http://localhost:5173/08b44645-decb-401e-b7e8-fb4003ce3e50",
-      "time": "11/12/2023, 17:21:52",
-      "genre": "Jazz",
-      "artist": "hljh"
+      "id": "5b2e8570-28c7-4d96-a477-f915c25feaa5",
+      "name": "Calm-Down---Selena-Gomez(musicdownload.cc) (1) (1).mp3",
+      "url": "blob:http://localhost:5174/ec2b7245-d1c9-4c06-b404-2eca0e3a1658",
+      "time": "12/12/2023, 10:04:11",
+      "genre": "Pop",
+      "artist": "gkgvl"
     }
   ]
 }

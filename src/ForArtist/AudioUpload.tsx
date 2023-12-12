@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import UserServices from '../Axios/UserServices';
 
 
 interface UploadedFile {
@@ -13,34 +14,25 @@ interface UploadedFile {
 }
 
 const AudioUpload: React.FC = () => {
+
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [artistName, setArtistName] = useState<string>('');
   const [selectedGenre, setSelectedGenre] = useState<string>('');
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await axios.get('http://localhost:3000/data.json');
-  //     setUploadedFiles(response.data);
-  //   } catch (error) {
-  //     console.error('Error fetching data from the server:', error);
-  //   }
-  // };
+  const userServices = UserServices();
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/UploadedAudio');
+        const response = await userServices().getUploadedAudio();
         setUploadedFiles(response.data);
-        console.log(uploadedFiles);
-        console.log('Data from the server:', response.data);
       } catch (error) {
         console.error('Error fetching data from the server:', error);
       }
     };
     fetchData();
-  }, []);
+  }, [userServices]);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
@@ -48,12 +40,15 @@ const AudioUpload: React.FC = () => {
       setSelectedFile(file);
     }
   };
+
   const handleGenreChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedGenre(e.target.value);
   };
+
   const handleArtistChange = (e: ChangeEvent<HTMLInputElement>) => {
     setArtistName(e.target.value);
   };
+
   const handleUpload = async () => {
     if (selectedFile) {
       const fileURL = URL.createObjectURL(selectedFile);
@@ -68,10 +63,7 @@ const AudioUpload: React.FC = () => {
       };
 
       try {
-        const response = await axios.post('http://localhost:3000/UploadedAudio', newFile);
-        console.log('File details sent to the server successfully:', response.data);
-
-
+        await userServices().addUploadedAudio(newFile);
       } catch (error) {
         console.error('Error sending file details to the server:', error);
       }
@@ -82,6 +74,7 @@ const AudioUpload: React.FC = () => {
       setIsFormVisible(false);
     }
   };
+
   const handleDownload = (url: string, name: string) => {
     // Create a hidden link and trigger a click to download the file
     const link = document.createElement('a');
@@ -92,9 +85,7 @@ const AudioUpload: React.FC = () => {
 
   const handleDelete = async (id: string) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/UploadedAudio/${id}`);
-      console.log('File deleted successfully:', response.data);
-
+      await userServices().deleteUploadedAudio(id);
       setUploadedFiles((prevFiles) => prevFiles.filter(file => file.id !== id));
     } catch (error) {
       console.error('Error deleting file:', error);
@@ -167,5 +158,10 @@ const AudioUpload: React.FC = () => {
     </div>
   );
 };
+
+
+
+
+
 
 export default AudioUpload;

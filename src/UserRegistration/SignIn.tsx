@@ -6,15 +6,16 @@ import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
 import './UserRegistration.css';
-
+import UserServices from '../Axios/UserServices';
 interface FormData {
   email: string;
   password: string;
 }
 
 const SignIn = () => {
+  const userServices = UserServices();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -31,50 +32,52 @@ const SignIn = () => {
     password: Yup.string().required('Password is required'),
   });
 
-  const handleSubmit = () => {
-    let isValid = true;
 
-    if (isValid) {
-      axios
-        .get('http://localhost:3000/RegisteredUsers')
-        .then((result) => {
-          let emailFound = false;
+  const handleSubmit = async () => {
+    try {
+      let isValid = true;
 
-          result.data.map((RegisteredUsers: any) => {
-            if (RegisteredUsers.email === formData.email) {
-              emailFound = true;
-              if (RegisteredUsers.password === formData.password) {
-                alert('Sign In Successful');
-                navigate('/');
-                axios
-                  .post('http://localhost:3000/SignedInUsers', {
-                    email: formData.email,
-                    password: formData.password,
-                  })
-                  .then((response) => console.log(response))
-                  .catch((error) => console.error(error));
-              } else {
-                isValid = false;
-                setValidationErrors((prevErrors) => ({
-                  ...prevErrors,
-                  password: 'Wrong Password',
-                }));
-              }
+      if (isValid) {
+        // Use getRegisteredUsers method from UserServices
+        const result = await userServices().getRegisteredUsers();
+
+        let emailFound = false;
+
+        // Use the async version of map when working with Promises
+        await Promise.all(result.data.map(async (RegisteredUsers: any) => {
+          if (RegisteredUsers.email === formData.email) {
+            emailFound = true;
+            if (RegisteredUsers.password === formData.password) {
+              alert('Sign In Successful');
+              navigate('/');
+              // Use addSignedInUser method from UserServices
+              await userServices().addSignedInUser({
+                email: formData.email,
+                password: formData.password,
+              });
+            } else {
+              isValid = false;
+              setValidationErrors((prevErrors) => ({
+                ...prevErrors,
+                password: 'Wrong Password',
+              }));
             }
-          });
-
-          if (!emailFound) {
-            isValid = false;
-            setValidationErrors((prevErrors) => ({
-              ...prevErrors,
-              email: 'Email Id not Registered',
-            }));
           }
-        })
-        .catch((err) => console.log(err));
+        }));
+
+        if (!emailFound) {
+          isValid = false;
+          setValidationErrors((prevErrors) => ({
+            ...prevErrors,
+            email: 'Email Id not Registered',
+          }));
+        }
+      }
+    } catch (error) {
+      console.error('Error in sign-in:', error);
+      // Handle the error as needed
     }
   };
-
   const {
     values,
     errors,

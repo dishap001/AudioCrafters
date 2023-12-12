@@ -1,15 +1,16 @@
 import  { useState, useEffect } from 'react';
 import AudioPlayer from '../Player/AudioPlayer';
-import axios from 'axios';
+
+import UserServices from '../Axios/UserServices';
 
 function ForListeners() {
   const [fetchedFiles, setFetchedFiles] = useState<{ url: string ,name :string}[]>([]);
-
+  const userServices = UserServices();
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Replace 'your-api-endpoint' with the actual endpoint to fetch data from
-        const response = await axios.get('http://localhost:3000/UploadedAudio');
+        const response = await userServices().getUploadedAudio();
         setFetchedFiles(response.data);
       } catch (error) {
         console.error('Error fetching data from the server:', error);
