@@ -9,9 +9,7 @@ function UserServices() {
              getRegisteredUsers: async () => {
                 return await axios.get('/RegisteredUsers');
               }, 
-              addSignedInUser: async (data: object) => {
-                return await axios.post('/SignedInUsers', data);
-              },
+            
                 getUploadedAudio: async () => {
                   return await axios.get('/UploadedAudio');
                 },

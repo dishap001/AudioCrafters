@@ -38,7 +38,7 @@ const SignIn = () => {
       let isValid = true;
 
       if (isValid) {
-        // Use getRegisteredUsers method from UserServices
+
         const result = await userServices().getRegisteredUsers();
 
         let emailFound = false;
@@ -51,12 +51,8 @@ const SignIn = () => {
               localStorage.setItem("isSignIn",JSON.stringify(formData.email))
               alert('Sign In Successful');
               navigate('/');
+              window.location.reload();
               
-              // Use addSignedInUser method from UserServices
-              await userServices().addSignedInUser({
-                email: formData.email,
-                password: formData.password,
-              });
             } else {
               isValid = false;
               setValidationErrors((prevErrors) => ({
@@ -77,7 +73,6 @@ const SignIn = () => {
       }
     } catch (error) {
       console.error('Error in sign-in:', error);
-      // Handle the error as needed
     }
   };
   

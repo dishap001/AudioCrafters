@@ -15,7 +15,7 @@ const routes=[
         element:<Home/>
     },
     {   path:'/ForArtists',
-        element:<ForArtists/>
+        element:<ForArtists />
     },
     {   path:'/ForListeners',
         element:<ForListeners/>
