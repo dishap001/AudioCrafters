@@ -3,13 +3,15 @@ import './AudioPlayer.css';
 import { useRef, useState, useEffect } from 'react';
 import { Card, Image, ProgressBar, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import defaultbg from '../assets/default-bg.jpg'
+
+
 interface AudioPlayerProps {
   audioSrc: string;
   audioName: string; 
+  genre: string;
 }
 
-function AudioPlayer({ audioSrc ,audioName }: AudioPlayerProps) {
+function AudioPlayer({ audioSrc ,audioName,genre}: AudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -66,7 +68,9 @@ function AudioPlayer({ audioSrc ,audioName }: AudioPlayerProps) {
       <div className="custom-wrapper">
         <Card className="custom-player-card">
           <div className="custom-image-wrapper">
-            <Image src={defaultbg} alt="Cover Image" fluid />
+            <Image  src={`/${genre}.jpg`}
+            
+              alt="Cover Image" fluid />
           </div>
           <ProgressBar
             now={currentTime}
@@ -79,7 +83,7 @@ function AudioPlayer({ audioSrc ,audioName }: AudioPlayerProps) {
             <p>{formatDuration(currentTime)}</p>
             <p>{formatDuration(duration)}</p>
           </div>
-<p className="audio-name">{audioName}</p>
+            <p className="audio-name">{audioName}</p>
           <Button variant="primary" onClick={handlePlayPause} className="custom-button">
             {isPlaying ? "Pause" : "Play"}
           </Button>
