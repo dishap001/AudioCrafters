@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import AudioPlayer from '../Player/AudioPlayer';
 import UserServices from '../Axios/UserServices';
 import { Button, Row, Col } from 'react-bootstrap';
+import Audios from './Audios';
 
 
 interface AudioFile {
@@ -48,10 +49,6 @@ function ForListeners() {
   return (
     <div className="text-center">
       <Row className="justify-content-center mb-2">
-        <Col xs="auto">
-          {" "}
-          <Button onClick={() => handleGenreClick("Jazz")}>Jazz</Button>{" "}
-        </Col>
         <Col xs="auto">
           {" "}
           <Button onClick={() => handleGenreClick("Pop")}>Pop</Button>{" "}
@@ -106,6 +103,7 @@ function ForListeners() {
           ))}
         </Row>
       )}
+      <Audios/>
     </div>
   );
 }

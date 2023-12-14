@@ -71,5 +71,98 @@
       "id": 10
     }
   ],
-  "UploadedAudio": []
+  "UploadedAudio": [],
+  "Audios": [
+    {
+      "id": 1,
+      "name": "The Real Slim Shady",
+      "artist": "Eminem",
+      "path": "/TheRealSlimShady.mp3",
+      "genre": "Rap"
+    },
+    {
+      "id": 2,
+      "name": "Gangsta Rap Made Me Do It",
+      "artist": "Ice Cube",
+      "path": "/GangstaRapMadeMeDoIt.mp3",
+      "genre": "Rap"
+    },
+    {
+      "id": 3,
+      "name": "Get Whoa",
+      "artist": "Makj",
+      "path": "/GetWhoa.mp3",
+      "genre": "EDM"
+    },
+    {
+      "id": 4,
+      "name": "Loco",
+      "artist": "Makj",
+      "path": "/Loco.mp3",
+      "genre": "EDM"
+    },
+    {
+      "id": 5,
+      "name": "Generic",
+      "artist": "Makj",
+      "path": "/Generic.mp3",
+      "genre": "EDM"
+    },
+    {
+      "id": 6,
+      "name": "Joy",
+      "artist": "Classical",
+      "path": "/Joy.mp3",
+      "genre": "Classical"
+    },
+    {
+      "id": 7,
+      "name": "Love Yourself",
+      "artist": "Justin Bieber",
+      "path": "/LoveYourself.mp3",
+      "genre": "Pop"
+    },
+    {
+      "id": 8,
+      "name": "Peaches",
+      "artist": "Justin Bieber",
+      "path": "/Peaches.mp3",
+      "genre": "Pop"
+    },
+    {
+      "id": 9,
+      "name": "Treat You Better",
+      "artist": "Shawn Mendes",
+      "path": "/TreatYouBetter.mp3",
+      "genre": "Pop"
+    },
+    {
+      "id": 10,
+      "name": "The Night",
+      "artist": "Avicii",
+      "path": "/TheNight.mp3",
+      "genre": "EDM"
+    },
+    {
+      "id": 11,
+      "name": "Cry Me a River",
+      "artist": "Justin Timberlake",
+      "path": "/CryMeaRiver.mp3",
+      "genre": "Pop"
+    },
+    {
+      "id": 12,
+      "name": "Flowers",
+      "artist": "Miley Cyrus",
+      "path": "/Flowers.mp3",
+      "genre": "Pop"
+    },
+    {
+      "id": 13,
+      "name": "Calm Down",
+      "artist": "Selena Gomez",
+      "path": "/calmdown.mp3",
+      "genre": "Pop"
+    }
+  ]
 }

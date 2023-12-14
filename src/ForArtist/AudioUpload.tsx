@@ -118,7 +118,6 @@ const AudioUpload: React.FC = () => {
             <Form.Label>Genre</Form.Label>
             <Form.Control as="select" value={selectedGenre} onChange={handleGenreChange}>
               <option value="">Select Genre</option>
-              <option value="Jazz">Jazz</option>
               <option value="Pop">Pop</option>
               <option value="Classic">Classic</option>
               <option value="Rock">Rock</option>
