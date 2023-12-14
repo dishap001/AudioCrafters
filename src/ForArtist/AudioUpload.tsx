@@ -69,6 +69,11 @@ const AudioUpload: React.FC = () => {
       } catch (error) {
         console.error('Error sending file details to the server:', error);
       }
+      try {
+        await userServices().addAudio(newFile);
+      } catch (error) {
+        console.error('Error sending file details to the server:', error);
+      }
 
       setUploadedFiles([...uploadedFiles, newFile]);
       setSelectedFile(null);

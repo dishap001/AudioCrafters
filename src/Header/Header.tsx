@@ -63,7 +63,7 @@ const SignOut =  () => {
           </Nav.Link>
         </Nav>
         <Nav>
-          {!signedIn && (
+        {!signedIn && (
             <>
               <Nav.Link as={Link} to="/SignUp">
                 Sign up

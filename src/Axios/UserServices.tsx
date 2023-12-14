@@ -20,6 +20,9 @@ function UserServices() {
       },
       getAudio: async () => {
         return await axios.get("/Audios");
+      }
+      ,addAudio: async (data: object) => {
+        return await axios.post("/Audios", data);
       },
     };
   };
