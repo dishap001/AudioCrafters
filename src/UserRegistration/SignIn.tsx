@@ -97,8 +97,9 @@ const SignIn = () => {
   });
 
   return (
-    <Container fluid>
-      <Row className="justify-content-md-center">
+    <Container fluid 
+    style={{ marginLeft: "280px", width: "calc(100% - 280px)" }}>
+      <Row className="justify-content-md-center" >
         <Col md={6}>
           <Form onSubmit={formikHandleSubmit} className="form-container">
             <h2 className="text-center">Sign In Form</h2>

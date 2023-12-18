@@ -1,5 +1,5 @@
-// import AudioRecorder from "./AudioRecorder"
-import { useEffect } from "react"
+import AudioRecorder from "./AudioRecorder"
+ import { useEffect } from "react"
 import AudioUpload from "./AudioUpload"
 
 function ForArtists() {
@@ -11,7 +11,7 @@ function ForArtists() {
     <>
     <AudioUpload/>
     <div>ForArtists</div>
-    {/* <AudioRecorder/> */}
+    <AudioRecorder/>
     </>
   )
 }

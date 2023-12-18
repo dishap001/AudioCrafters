@@ -1,0 +1,102 @@
+.mainContainer {
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .home-container {
+    background: rgba(34, 34, 34, 0.6);
+    backdrop-filter: blur(2px);
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+  }
+  
+  .home-container h1 {
+    color: rgba(255, 213, 5, 0.837); /* Yellow color */
+  }
+  
+  .home-container p {
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+  }
+  .i{
+    font-size: 20px;
+    margin-right: 15px;
+    text-decoration: none;
+    color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    
+  }
+  
+  .SignIn,
+  .listener-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #333; /* Black color */
+    color: #fff; /* White color */
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .listener-button {
+    background-color: rgba(255, 213, 5, 0.837); /* Yellow color for the "Music listeners Click Here" button */
+  }
+  
+  .SignIn:hover,
+  .listener-button:hover {
+    background-color:rgba(34, 34, 34, 0.6) ; /* Darker shade on hover */
+  }
+  /* Add this CSS to your Home1.css file or your preferred stylesheet */
+
+.features-section {
+    text-align: center;
+    padding: 50px 0; /* Adjust the padding as needed */
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Adjust the gap between grid items */
+    justify-content: center;
+  }
+  
+  .feature {
+    background-color: rgba(34, 34, 34, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-align: center;
+  }
+  
+  .feature i {
+    display: block; /* Ensure the icon is centered */
+    margin: 0 auto 15px; /* Adjust the margin as needed */
+  }
+  
+  .feature h2 {
+    margin: 10px 0;
+  }
+  
+  .feature p {
+    margin-bottom: 20px;
+  }
+  
+ 

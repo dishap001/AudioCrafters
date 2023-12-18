@@ -71,7 +71,16 @@
       "id": 10
     }
   ],
-  "UploadedAudio": [],
+  "UploadedAudio": [
+    {
+      "id": "2c99e747-3c9b-424e-882c-28399de58b7b",
+      "name": "Love Yourself",
+      "time": "18/12/2023, 15:50:27",
+      "genre": "Classic",
+      "artist": "hgvkgfk",
+      "audioPath": "\\songs\\calmdown.mp3"
+    }
+  ],
   "Audios": [
     {
       "id": 1,
@@ -165,20 +174,44 @@
       "genre": "Pop"
     },
     {
-      "id": "d35739e9-0c52-4277-be54-40063ede30cd",
-      "name": "Calm-Down---Selena-Gomez(musicdownload.cc) (1).mp3",
-      "url": "blob:http://localhost:5173/22561f55-b138-4942-8928-91c0d9878487",
-      "time": "14/12/2023, 12:26:21",
-      "genre": "Classic",
-      "artist": "wsw"
+      "id": "3f46802a-8925-4510-a2e4-774113cb6ed6",
+      "name": "calmdown.mp3",
+      "time": "18/12/2023, 11:48:22",
+      "genre": "Pop",
+      "artist": "hgvkgfk",
+      "audioPath": "\\songs\\calmdown.mp3"
     },
     {
-      "id": "f7baf0f5-dd22-4ad1-a3a6-8997e546139b",
-      "name": "Loco -Makj.mp3",
-      "url": "blob:http://localhost:5173/34def9ed-1227-474c-be06-576b3fc0e7f9",
-      "time": "14/12/2023, 13:25:31",
+      "id": "c8656f7a-18db-4722-9899-27ab4eaae4fd",
+      "name": "calmdown.mp3",
+      "time": "18/12/2023, 11:49:51",
       "genre": "Rock",
-      "artist": "hjbl"
+      "artist": "csad",
+      "audioPath": "\\songs\\calmdown.mp3"
+    },
+    {
+      "id": "3efa3eca-789a-46ea-ab08-7bdb6d40be58",
+      "name": "Love Yourself",
+      "time": "18/12/2023, 15:00:01",
+      "genre": "Pop",
+      "artist": "kmlksmkm",
+      "audioPath": "\\songs\\LoveYourself.mp3"
+    },
+    {
+      "id": "51dccd01-2f26-4f62-937a-b9832b14b059",
+      "name": "Love Yourself try1",
+      "time": "18/12/2023, 15:04:50",
+      "genre": "EDM",
+      "artist": "kmlksmkm",
+      "audioPath": "\\songs\\LoveYourself.mp3"
+    },
+    {
+      "id": "2c99e747-3c9b-424e-882c-28399de58b7b",
+      "name": "Love Yourself",
+      "time": "18/12/2023, 15:50:27",
+      "genre": "Classic",
+      "artist": "hgvkgfk",
+      "audioPath": "\\songs\\calmdown.mp3"
     }
   ]
 }

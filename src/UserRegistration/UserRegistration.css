@@ -2,11 +2,13 @@
 
 .form-container {
     max-width: 400px;
+    color: #f1f1f1;
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #fff;
+    background: rgba(34, 34, 34, 0.6);
+    backdrop-filter: blur(10px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
 }
@@ -43,38 +45,66 @@ label {
 
 /* Additional Styles for SignUp Form */
 .form-container.signup {
-    max-width: 1000px;
+    max-width: 400px; /* Adjusted max-width */
+    float: right; /* Align to the right side */
+    margin-top: 50px;/* Adjusted margin for better spacing */
 }
 
 /* Additional Styles for SignIn Form */
 .form-container.signin {
-    max-width: 400px;
+    max-width: 400px; /* Adjusted max-width */
+    float: right; /* Align to the right side */
+    margin-top: 50px;/* Adjusted margin for better spacing */
 }
+
 .form-group.horizontal {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-  }
-  .form-group.horizontal label {
+}
+
+.form-group.horizontal label {
     margin-right: 10px; /* Add margin between label and input */
-  }
+}
+@media (min-width: 768px) {
+    .form-container.signup,
+    .form-container.signin {
+        max-width: 400px; /* Adjusted max-width for larger screens */
+        float: right; /* Align to the right side */
+    }
+
+    .form-group.horizontal {
+        flex-direction: row; /* Adjust direction to row for larger screens */
+        align-items: center; /* Align items to the center for larger screens */
+        justify-content: center;
+    }
+
+    .form-group.horizontal label {
+        margin-right: 10px; /* Add margin between label and input */
+    }
+}
 /* Responsive Styles */
 @media (max-width: 600px) {
     .form-container {
         max-width: 100%;
-        margin-top: 20px; /* Adjusted margin for better spacing on smaller screens */
+        margin-top: 20px;
+        margin: auto;
     }
 
     .form-container.signup {
         max-width: 100%;
+        float: none;
     }
 
     .form-container.signin {
         max-width: 100%;
+        float: none;
     }
+
     .form-group.horizontal {
         flex-direction: column; /* Adjust direction to column for smaller screens */
-        align-items: flex-start; /* Align items to the start for smaller screens */
-      }
+        align-items: center; /* Center the content vertically */
+        justify-content: center;
+    }
 }

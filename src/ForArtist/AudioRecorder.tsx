@@ -109,7 +109,7 @@ const AudioRecorder = () => {
   };
 
   return (
-    <>
+    <div style={{ marginLeft: '280px', width: 'calc(100% - 280px)' }}>
       <div className="audio-recorder-container">
         <h3>Audio Recording Feature</h3>
 
@@ -184,7 +184,7 @@ const AudioRecorder = () => {
           </tbody>
         </Table>
       </div>
-    </>
+    </div>
   );
 };
 

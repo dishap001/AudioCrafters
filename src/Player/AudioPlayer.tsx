@@ -19,6 +19,7 @@ function AudioPlayer({ audioSrc ,audioName,genre}: AudioPlayerProps) {
 
 
   const handlePlay = () => {
+    console.log('Audio Source URL:', audioSrc);
     audioRef.current!.play();
     setIsPlaying(true);
   };
@@ -78,7 +79,7 @@ function AudioPlayer({ audioSrc ,audioName,genre}: AudioPlayerProps) {
             variant="info"
             onChange={handleSeek}
           />
-          <audio ref={audioRef} src={audioSrc} />
+          <audio ref={audioRef} src={audioSrc}   />
           <div className="custom-track-duration">
             <p>{formatDuration(currentTime)}</p>
             <p>{formatDuration(duration)}</p>

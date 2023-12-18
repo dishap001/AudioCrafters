@@ -3,6 +3,8 @@ import { lazy } from "react";
 import Loading from "../Loading/Loading";
 
 const Home =Loading(lazy(async () => await import ('../Home/Home')));
+const Home1 =Loading(lazy(async () => await import ('../Home/Home1')));
+
 
 const SignUp =Loading(lazy(async () => await import ('../UserRegistration/SignUp')));
 const SignIn =Loading(lazy(async () => await import ('../UserRegistration/SignIn')));
@@ -27,7 +29,10 @@ const routes=[
     {
         path:'/SignIn',
         element:<SignIn/>
-    }
+    },
+    {   path:'/Home1',
+    element:<Home1/>
+},
 ];
 
 export default routes;

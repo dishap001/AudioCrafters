@@ -1,0 +1,28 @@
+.App {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+  }
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(./assets/MainBg.jpg) no-repeat center;
+    background-size: cover;
+    /* filter: grayscale(100); */
+    z-index: -1;
+    filter: blur(2px);
+  }
+  
+.mainContainer {
+
+  box-sizing: border-box;
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+.content-wrapper {
+  margin-left: 280px; /* Adjust the margin based on your left sidebar width */
+  padding: 20px; /* Adjust padding as needed */
+}
