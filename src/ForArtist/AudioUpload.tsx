@@ -112,7 +112,6 @@ const AudioUpload: React.FC = () => {
     >
       <div className="my-4">
         {" "}
-        {/* Add margin for spacing */}
         <Row className="mb-3">
           <Col className="d-flex justify-content-right">
             <Button
@@ -124,7 +123,12 @@ const AudioUpload: React.FC = () => {
           </Col>
         </Row>
         {isFormVisible && (
-          <Row>
+          <Row style={{
+            background: "rgba(34, 34, 34, 0.9)",
+            backdropFilter: "blur(2px)",
+            color: "white",borderRadius: "15px",
+            padding: "20px"
+          }}>
             <Col>
               <Form>
                 <Form.Group controlId="audioFile">
@@ -172,8 +176,7 @@ const AudioUpload: React.FC = () => {
                   />
                 </Form.Group>
                 <div className="d-flex justify-content-center">
-                  <Button variant="primary" onClick={handleUpload}>
-                Upload
+                  <Button variant="primary" onClick={handleUpload} style={{marginTop:"20px",marginBottom:"10px"}}>  Upload
                   </Button>
                 </div>
               </Form>

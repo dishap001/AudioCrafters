@@ -4,7 +4,7 @@ import './App.css'
 // import Menu from './MainMenu/Menu'
 import routes from './Route/Route'
 import LeftMenu from './MainMenu/LeftMenu';
-import Home from './Home/Home';
+// import Home from './Home/Home';
 
 
 
@@ -18,7 +18,7 @@ function App() {
         <LeftMenu/>
         {routing}
       <div className='background'>
-        <Home/>
+
       </div>
       </div>
     );

@@ -1,0 +1,80 @@
+.ForArtist {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(34, 34, 34, 0.9);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 800px;
+  padding: 5rem 0;
+  margin-bottom: 140px;
+  margin-top: 100px;
+  padding-left: 20px;
+  padding-right: 100px;
+  
+}
+.artists-container {
+    flex: 1; /* Take remaining space */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: #fff;
+  }
+  .icon-style i{
+ 
+    font-size: 300px;
+    text-decoration: none;
+    color: #f1f1f1;
+    display: flex;
+    align-self: flex-end;
+  }
+    
+  
+  .artists-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .artists-container span {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: rgba(255, 213, 5, 0.837);
+  }
+  
+  .artists-container p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .buttons-container {
+    display: flex;
+    justify-content: left;
+    
+  }
+  .listener-button {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff; /* White color */
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s ease; 
+  }
+  .listener-button {
+    background-color: rgba(255, 213, 5, 0.837); /* Yellow color for the "Music listeners Click Here" button */
+  }
+  .listener-button:hover {
+    background-color: rgba(34, 34, 34, 0.6); /* Darker shade on hover */
+  }
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align to the right */
+  }
+  
+  .icon-container i {
+    font-size: 6rem; /* Adjust the size as needed */
+  }

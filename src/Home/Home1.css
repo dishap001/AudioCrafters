@@ -1,102 +1,151 @@
-.mainContainer {
+.Container {
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+  height: fit-content;
+}
 
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .home-container {
-    background: rgba(34, 34, 34, 0.6);
-    backdrop-filter: blur(2px);
-    text-align: center;
-    padding: 20px;
-    color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-  }
-  
-  .home-container h1 {
-    color: rgba(255, 213, 5, 0.837); /* Yellow color */
-  }
-  
-  .home-container p {
-    color: white;
-    margin-bottom: 20px;
-  }
-  
-  .buttons-container {
-    display: flex;
-    justify-content: center;
-  }
-  .i{
-    font-size: 20px;
-    margin-right: 15px;
-    text-decoration: none;
-    color: #f1f1f1;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    
-  }
-  
-  .SignIn,
-  .listener-button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #333; /* Black color */
-    color: #fff; /* White color */
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .listener-button {
-    background-color: rgba(255, 213, 5, 0.837); /* Yellow color for the "Music listeners Click Here" button */
-  }
-  
-  .SignIn:hover,
-  .listener-button:hover {
-    background-color:rgba(34, 34, 34, 0.6) ; /* Darker shade on hover */
-  }
-  /* Add this CSS to your Home1.css file or your preferred stylesheet */
+.home-container {
+  background: rgba(34, 34, 34, 0.9);
+  backdrop-filter: blur(2px);
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: 280px;
+  width: calc(100% - 280px);
+  padding: 5rem 0;
+  margin-bottom: 160px;
+  margin-top: 160px;
+}
 
 .features-section {
-    text-align: center;
-    padding: 50px 0; /* Adjust the padding as needed */
-  }
-  
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Adjust the gap between grid items */
-    justify-content: center;
-  }
-  
-  .feature {
-    background-color: rgba(34, 34, 34, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: white;
-    text-align: center;
-  }
-  
-  .feature i {
-    display: block; /* Ensure the icon is centered */
-    margin: 0 auto 15px; /* Adjust the margin as needed */
-  }
-  
-  .feature h2 {
-    margin: 10px 0;
-  }
-  
-  .feature p {
-    margin-bottom: 20px;
-  }
-  
- 
+  margin-left: 280px;
+  width: calc(100% - 280px);
+  padding: 50px 0; /* Adjust the padding as needed */
+  margin-top: 200px;
+  margin-bottom: 160px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  /* background: rgba(34, 34, 34, 0.6); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px; /* Set a max-width to prevent it from stretching too wide */
+  margin: 0 auto; 
+}
+
+.feature {
+  background: rgba(34, 34, 34, 0.9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  max-width: 300px; /* Set a max-width for each feature item */
+  margin: 0 auto; 
+}
+
+.feature i {
+  display: block; /* Ensure the icon is centered */
+  margin: 0 auto 15px; /* Adjust the margin as needed */
+}
+
+.feature h2,
+.feature p {
+  color: white;
+}
+
+.feature h2 {
+  margin: 10px 0;
+}
+
+.feature p {
+  margin-bottom: 20px;
+}
+
+.home-container h1 {
+  color: rgba(255, 213, 5, 0.837); /* Yellow color */
+}
+
+.home-container p {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.i {
+  font-size: 20px;
+  margin-right: 15px;
+  text-decoration: none;
+  color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.SignIn,
+.listener-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #333; /* Black color */
+  color: #fff; /* White color */
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.listener-button {
+  background-color: rgba(255, 213, 5, 0.837); /* Yellow color for the "Music listeners Click Here" button */
+}
+
+.SignIn:hover,
+.listener-button:hover {
+  background-color: rgba(34, 34, 34, 0.6); /* Darker shade on hover */
+}
+/* styles.css */
+
+.typeGenres {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  padding: 20px;
+  background: rgba(34, 34, 34, 0.9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+
+.genreContainer {
+  flex-basis: calc(33.33% - 1rem); /* Adjust the width and margin as needed */
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-size: cover;
+  background-position: center;
+  height: 200px; /* Set a fixed height for each container */
+  display: flex;
+  align-items: flex-end;
+}
+
+.genreContainer span {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Adjust the background color as needed */
+  color: #fff;
+  padding: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  text-align: center;
+}

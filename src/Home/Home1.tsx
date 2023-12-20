@@ -1,75 +1,117 @@
-
-import { Link } from 'react-router-dom'
-import './Home1.css'
-import { FaHeadphones, FaMicrophone, FaUpload } from 'react-icons/fa6'
-import { Stack } from 'react-bootstrap'
+import { Link } from "react-router-dom";
+import "./Home1.css";
+import { FaHeadphones, FaMicrophone, FaUpload } from "react-icons/fa6";
 
 function Home() {
   return (
     <>
-   
-    {/* <div className="home-container" 
-    style={{ marginLeft: "280px", width: "calc(100% - 280px)" }}>
-      <h1>Record Music</h1>
-      <h1>Get Published</h1>
-      <p>Online recording studio with a built-in audience. All on AudioCrafters.</p>
-      <div className="buttons-container">
+      <div className="Container"  style={{ marginLeft: "280px", width: "calc(100% - 280px)",marginRight:"100px",marginBottom:"20px" }}>
+        <section  className="home-container"
+          style={{ marginLeft: "280px", width: "calc(100% - 280px)",marginRight:"100px"}}   >
+          <h1>Record Music</h1>
+          <h1>Get Published</h1>
+          <p>
+            Online recording studio with a built-in audience. All on
+            AudioCrafters.
+          </p>
+          <div className="buttons-container">
             <Link to="/signin">
               <button className="SignIn">Get Started</button>
             </Link>
-            <Link to="/listeners">
-              <button className="listener-button">Music listeners Click Here</button>
+            <Link to="/ForListeners">
+              <button className="listener-button">
+                Music listeners Click Here
+              </button>
             </Link>
           </div>
-    </div> */}
-     <Stack gap={3}>
-    <section className="home-container" style={{ marginLeft: "280px", width: "calc(100% - 280px)" }}>
-    <h1>Record Music</h1>
-    <h1>Get Published</h1>
-    <p>Online recording studio with a built-in audience. All on AudioCrafters.</p>
-    <div className="buttons-container">
-      <Link to="/signin">
-        <button className="SignIn">Get Started</button>
-      </Link>
-      <Link to="/ForListeners">
-        <button className="listener-button">Music listeners Click Here</button>
-      </Link>
-    </div>
-  </section>
+        </section>
+        <section className="features-section"
+          style={{ marginLeft: "180px", width: "calc(100% - 280px)",marginRight:"100px"}} >
+          <div className="features-grid">
+            <div className="feature">
+              <i style={{ color: "white" }}>
+                <FaMicrophone size={50} />
+              </i>
 
-
-  <section className="features-section" style={{ marginLeft: "280px", width: "calc(100% - 280px)" }}>
-        <div className="features-grid">
-          <div className="feature">
-            <i style={{ color: 'white' }}><FaMicrophone size={50} /></i>
-            
-            <h2 style={{ color: 'white' }}>Record Your Music</h2>
-            <p>Explore the online recording studio and bring your creativity to life.</p>
-          </div>
-
-          <div className="feature">
-          <i style={{ color: 'white' }}><FaUpload size={50} /></i>
-            
-            <h2 style={{ color: 'white' }}>Upload Your Music</h2>
-            <p>Effortlessly upload your music and share it with the world.</p>
-          </div>
-
-          <div className="feature">
-          <i style={{ color: 'white' }}> <FaHeadphones size={50} /></i>
-            
-            <h2 style={{ color: 'white' }}>Listen to Music</h2>
-            <p>Discover and enjoy a variety of music from talented artists.</p>
-          </div>
-        </div>
-      </section>
-  <section>
-    {/* Add your content for the third section */}
-  </section>
-  </Stack>
+              <Link to="/AudioRecorder">
    
-    
+                <h2 style={{ color: "white" }}>Record Your Music</h2>
+                <p>
+                  Explore the online recording studio and bring your creativity to life.
+                </p>
+              </Link>
+            </div>
+
+            <div className="feature">
+              <i style={{ color: "white" }}>
+                <FaUpload size={50} />
+              </i>
+              <Link to="/AudioUpload">
+              <h2 style={{ color: "white" }}>Upload Your Music</h2>
+              <p>Effortlessly upload your music and share it with the world.</p>
+              </Link>
+            </div>
+
+            <div className="feature">
+              <i style={{ color: "white" }}>
+                {" "}
+                <FaHeadphones size={50} />
+              </i>
+              <Link to="/ForListeners">
+              <h2 style={{ color: "white" }}>Listen to Music</h2>
+              <p>
+                Discover and enjoy a variety of music from talented artists.
+              </p>
+              </Link>
+            </div>
+          </div>
+        </section>
+        <section className="typeGenres"  style={{ marginLeft: "180px", width: "calc(100% - 280px)",marginRight:"100px"}}>
+            {/* Pop Genre */}
+            <Link to="/ForListeners">
+              <div className="genreContainer" style={{ backgroundImage: 'url("Pop.jpg")' }}>
+                <span><strong>Pop</strong></span>
+              </div>
+            </Link>
+
+            {/* Classic Genre */}
+            <Link to="/ForListeners">
+              <div className="genreContainer" style={{ backgroundImage: 'url("Classic.jpg")' }}>
+                <span><strong>Classic</strong></span>
+              </div>
+            </Link>
+
+            {/* Rap Genre */}
+            <Link to="/ForListeners">
+              <div className="genreContainer" style={{ backgroundImage: 'url("Rap.jpg")' }}>
+                <span><strong>Rap</strong></span>
+              </div>
+            </Link>
+
+            {/* EDM Genre */}
+            <Link to="/ForListeners">
+              <div className="genreContainer" style={{ backgroundImage: 'url("EDM.jpg")' }}>
+                <span><strong>EDM</strong></span>
+              </div>
+            </Link>
+
+            {/* Rock Genre */}
+            <Link to="/ForListeners">
+              <div className="genreContainer" style={{ backgroundImage: 'url("Rock.jpg")' }}>
+                <span><strong>Rock</strong></span>
+              </div>
+            </Link>
+
+            {/* Show All Genres */}
+            <Link to="/ForListeners">
+              <div className="genreContainer" style={{ backgroundImage: 'url("default.jpg")' }}>
+                <span><strong>Show All</strong></span>
+              </div>
+            </Link>
+          </section>
+      </div>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
