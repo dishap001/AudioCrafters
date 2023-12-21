@@ -173,6 +173,91 @@
       "path": "/calmdown.mp3",
       "genre": "Pop"
     },
+    
+    {
+      "id": 14,
+      "name": "Humdard",
+      "artist": "Arijit Singh",
+      "path": "/Humdard.mp3",
+      "genre": "Classic"
+    },
+    {
+      "id": 15,
+      "name": "Tum Hi Ho",
+      "artist": "Arijit Singh",
+      "path": "/TumHiHo.mp3",
+      "genre": "Classic"
+    },
+    {
+      "id": 16,
+      "name": "Raabta",
+      "artist": "Arijit Singh",
+      "path": "/Raabta.mp3",
+      "genre": "Classic"
+    },
+    {
+      "id": 16,
+      "name": "Naina",
+      "artist": "Arijit Singh",
+      "path": "/Naina.mp3",
+      "genre": "Classic"
+    },
+    {
+      "id": 17,
+      "name": "Love Your self",
+      "artist": "Arijit Singh",
+      "path": "/Loveyourself.mp3",
+      "genre": "Rap"
+    },
+    {
+      "id": 18,
+      "name": "Starboy",
+      "artist": "The Weeknd",
+      "path": "/Starboy.mp3",
+      "genre": "EDM"
+    },
+    {
+      "id": 19,
+      "name": "The Hills",
+      "artist": "The Weeknd",
+      "path": "/TheHills.mp3",
+      "genre": "EDM"
+    },
+    {
+      "id": 20,
+      "name": "One Dance",
+      "artist": "Drake",
+      "path": "/OneDance.mp3",
+      "genre": "EDM"
+    },
+    {
+      "id": 21,
+      "name": "Mockingbird",
+      "artist": "Eminem",
+      "path": "/Mockingbird.mp3",
+      "genre": "EDM"
+    },
+    {
+      "id": 22,
+      "name": "Superman",
+      "artist": "Eminem",
+      "path": "/Superman.mp3",
+      "genre": "EDM"
+    },
+    {
+      "id": 23,
+      "name": "Not Afraid",
+      "artist": "Eminem",
+      "path": "/NotAfraid.mp3",
+      "genre": "EDM"
+    },
+    {
+      "id": 23,
+      "name": "Not Afraid",
+      "artist": "Eminem",
+      "path": "/NotAfraid.mp3",
+      "genre": "Rock"
+    },
     {
       "id": "3f46802a-8925-4510-a2e4-774113cb6ed6",
       "name": "calmdown.mp3",
@@ -194,14 +279,6 @@
       "name": "Love Yourself",
       "time": "18/12/2023, 15:00:01",
       "genre": "Pop",
-      "artist": "kmlksmkm",
-      "audioPath": "\\songs\\LoveYourself.mp3"
-    },
-    {
-      "id": "51dccd01-2f26-4f62-937a-b9832b14b059",
-      "name": "Love Yourself try1",
-      "time": "18/12/2023, 15:04:50",
-      "genre": "EDM",
       "artist": "kmlksmkm",
       "audioPath": "\\songs\\LoveYourself.mp3"
     },

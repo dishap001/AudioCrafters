@@ -138,9 +138,12 @@
   height: 200px; /* Set a fixed height for each container */
   display: flex;
   align-items: flex-end;
+  text-decoration: none;
+  
 }
 
 .genreContainer span {
+  text-decoration: none;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7); /* Adjust the background color as needed */
   color: #fff;
