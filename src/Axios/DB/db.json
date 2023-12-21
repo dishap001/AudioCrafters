@@ -252,10 +252,24 @@
       "genre": "EDM"
     },
     {
-      "id": 23,
+      "id": 24,
       "name": "Not Afraid",
       "artist": "Eminem",
       "path": "/NotAfraid.mp3",
+      "genre": "Rock"
+    },
+    {
+      "id": 25,
+      "name": "Starboy",
+      "artist": "The Weeknd",
+      "path": "/Starboy.mp3",
+      "genre": "Rock"
+    },
+    {
+      "id": 26,
+      "name": "The Hills",
+      "artist": "The Weeknd",
+      "path": "/TheHills.mp3",
       "genre": "Rock"
     },
     {
