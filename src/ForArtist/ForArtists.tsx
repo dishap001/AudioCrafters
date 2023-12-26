@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ForArtist.css"; 
 import { AiOutlineAudio } from "react-icons/ai";
+
 function ForArtists() {
   useEffect(() => {}, []);
 
@@ -29,6 +30,8 @@ function ForArtists() {
       <div className='icon-style' style={{color:"white"}}>
         <i><AiOutlineAudio /></i>
       </div>
+
+
   </div>
   
   );

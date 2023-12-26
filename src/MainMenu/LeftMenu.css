@@ -43,6 +43,7 @@
     display: flex;
     align-items: center;
     padding: 10px;
+    margin-bottom: 10px;
     
   }
   
@@ -182,5 +183,27 @@
   
     .leftMenu .menuContainer ul li {
       margin: 25px 0;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .leftMenu {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .leftMenu .searchBox {
+      display: none;
+    }
+  
+    .leftMenu .menuContainer ul li a span {
+      display: none;
+    }
+  
+    .leftMenu .menuContainer ul li a i {
+      font-size: 24px;
+    }
+  
+    .leftMenu .menuContainer ul li {
+      margin: 15px 0;
     }
   }

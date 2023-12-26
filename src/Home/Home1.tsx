@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import "./Home1.css";
 import { FaHeadphones, FaMicrophone, FaUpload } from "react-icons/fa6";
+import Footer from "../MainMenu/Footer";
 
 function Home() {
   return (
     <>
-      <div className="Container"  style={{ marginLeft: "280px", width: "calc(100% - 280px)",marginRight:"100px",marginBottom:"20px" }}>
+      <div className="Container"  style={{ marginLeft: "280px", width: "calc(100% - 280px)" }}>
         <section  className="home-container"
-          style={{ marginLeft: "280px", width: "calc(100% - 280px)",marginRight:"100px"}}   >
+             >
           <h1>Record Music</h1>
           <h1>Get Published</h1>
           <p>
@@ -25,8 +26,7 @@ function Home() {
             </Link>
           </div>
         </section>
-        <section className="features-section"
-          style={{ marginLeft: "180px", width: "calc(100% - 280px)",marginRight:"100px"}} >
+        <section className="features-section" >
           <div className="features-grid">
             <div className="feature">
               <i style={{ color: "white" }}>
@@ -66,7 +66,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <section className="typeGenres"  style={{ marginLeft: "180px", width: "calc(100% - 280px)",marginRight:"100px"}}>
+        <section className="typeGenres">
             {/* Pop Genre */}
             <Link to="/ForListeners">
               <div className="genreContainer" style={{ backgroundImage: 'url("Pop.jpg")' }}>
@@ -108,6 +108,9 @@ function Home() {
                 <span><strong>Show All</strong></span>
               </div>
             </Link>
+          </section>
+          <section >
+            <Footer/>
           </section>
       </div>
     </>

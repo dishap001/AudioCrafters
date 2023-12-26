@@ -187,9 +187,9 @@ const AudioUpload: React.FC = () => {
 
       {/* Display the table of uploaded audio files */}
       <Row>
-        <Col>
+        <Col >
           <div className="table-responsive">
-            <Table>
+            <Table striped bordered hover responsive>
               <thead>
                 <tr>
                   <th>Sr Num</th>

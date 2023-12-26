@@ -1,13 +1,9 @@
 
 import { useRoutes } from 'react-router-dom'
 import './App.css'
-// import Menu from './MainMenu/Menu'
+
 import routes from './Route/Route'
 import LeftMenu from './MainMenu/LeftMenu';
-// import Home from './Home/Home';
-
-
-
 
 function App() {
   
@@ -20,6 +16,7 @@ function App() {
       <div className='background'>
 
       </div>
+      
       </div>
     );
   }

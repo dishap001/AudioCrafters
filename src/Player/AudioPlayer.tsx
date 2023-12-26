@@ -1,23 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import './AudioPlayer.css';
 import { useRef, useState, useEffect } from 'react';
-import { Card, Image, ProgressBar, Button } from 'react-bootstrap';
+import { Card, Image, ProgressBar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { ImEye , ImEyeBlocked } from "react-icons/im";
+import { FaPlay ,FaPause ,FaHeart, FaRegHeart} from "react-icons/fa";
 
 interface AudioPlayerProps {
   audioSrc: string;
   audioName: string; 
+  artist:string;
   genre: string;
 }
 
-function AudioPlayer({ audioSrc ,audioName,genre}: AudioPlayerProps) {
+function AudioPlayer({ audioSrc ,audioName,artist,genre,}: AudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-
-
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLiked, setLiked] = useState(false);
   const handlePlay = () => {
     console.log('Audio Source URL:', audioSrc);
     audioRef.current!.play();
@@ -63,6 +65,15 @@ function AudioPlayer({ audioSrc ,audioName,genre}: AudioPlayerProps) {
       currentAudioRef?.removeEventListener("timeupdate", handleTimeUpdate);
     };
   }, []);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  
+    const toggleLike = () => {
+      setLiked(!isLiked);
+    };
+
 
   return (
     <div className="custom-container">
@@ -84,10 +95,28 @@ function AudioPlayer({ audioSrc ,audioName,genre}: AudioPlayerProps) {
             <p>{formatDuration(currentTime)}</p>
             <p>{formatDuration(duration)}</p>
           </div>
-            <p className="audio-name">{audioName}</p>
-          <Button variant="primary" onClick={handlePlayPause} className="custom-button">
-            {isPlaying ? "Pause" : "Play"}
-          </Button>
+
+            <div className="custom-dropdown-container">
+            <p className="audio-name">{audioName  } 
+              <button onClick={toggleLike} className="custom-dropdown-button"> 
+                {isLiked ? <FaHeart color="#FF0000" size={20} /> : <FaRegHeart size={20} />}
+              </button>
+              <button onClick={toggleDropdown} className="custom-dropdown-button">
+                {isDropdownOpen ? <ImEyeBlocked /> : <ImEye />}
+              </button>
+            </p>
+           
+            {isDropdownOpen && (
+              <div className="custom-dropdown-content">
+                <p>Name: {audioName}</p>
+                <p>Artist: {artist}</p>
+                <p>Genre: {genre}</p>
+              </div>
+            )}
+          </div>
+          <button  onClick={handlePlayPause} className="custom-button">
+            {isPlaying ? <FaPause />: <FaPlay />}
+          </button>
         </Card>
       </div>
     </div>

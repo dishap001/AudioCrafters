@@ -71,16 +71,7 @@
       "id": 10
     }
   ],
-  "UploadedAudio": [
-    {
-      "id": "2c99e747-3c9b-424e-882c-28399de58b7b",
-      "name": "Love Yourself",
-      "time": "18/12/2023, 15:50:27",
-      "genre": "Classic",
-      "artist": "hgvkgfk",
-      "audioPath": "\\songs\\calmdown.mp3"
-    }
-  ],
+  "UploadedAudio": [],
   "Audios": [
     {
       "id": 1,
@@ -173,7 +164,6 @@
       "path": "/calmdown.mp3",
       "genre": "Pop"
     },
-    
     {
       "id": 14,
       "name": "Humdard",
@@ -196,59 +186,52 @@
       "genre": "Classic"
     },
     {
-      "id": 16,
+      "id": 17,
       "name": "Naina",
       "artist": "Arijit Singh",
       "path": "/Naina.mp3",
       "genre": "Classic"
     },
     {
-      "id": 17,
-      "name": "Love Your self",
+      "id": 18,
+      "name": "Lose You self",
       "artist": "Arijit Singh",
-      "path": "/Loveyourself.mp3",
+      "path": "/Loseyouself.mp3",
       "genre": "Rap"
     },
     {
-      "id": 18,
+      "id": 19,
       "name": "Starboy",
       "artist": "The Weeknd",
       "path": "/Starboy.mp3",
       "genre": "EDM"
     },
     {
-      "id": 19,
+      "id": 20,
       "name": "The Hills",
       "artist": "The Weeknd",
       "path": "/TheHills.mp3",
       "genre": "EDM"
     },
     {
-      "id": 20,
+      "id": 21,
       "name": "One Dance",
       "artist": "Drake",
       "path": "/OneDance.mp3",
       "genre": "EDM"
     },
     {
-      "id": 21,
+      "id": 22,
       "name": "Mockingbird",
       "artist": "Eminem",
       "path": "/Mockingbird.mp3",
       "genre": "EDM"
     },
     {
-      "id": 22,
+      "id": 23,
       "name": "Superman",
       "artist": "Eminem",
       "path": "/Superman.mp3",
-      "genre": "EDM"
-    },
-    {
-      "id": 23,
-      "name": "Not Afraid",
-      "artist": "Eminem",
-      "path": "/NotAfraid.mp3",
       "genre": "EDM"
     },
     {
@@ -256,53 +239,57 @@
       "name": "Not Afraid",
       "artist": "Eminem",
       "path": "/NotAfraid.mp3",
-      "genre": "Rock"
+      "genre": "EDM"
     },
     {
       "id": 25,
+      "name": "Not Afraid",
+      "artist": "Eminem",
+      "path": "/NotAfraid.mp3",
+      "genre": "Rock"
+    },
+    {
+      "id": 26,
       "name": "Starboy",
       "artist": "The Weeknd",
       "path": "/Starboy.mp3",
       "genre": "Rock"
     },
     {
-      "id": 26,
+      "id": 27,
       "name": "The Hills",
       "artist": "The Weeknd",
       "path": "/TheHills.mp3",
       "genre": "Rock"
     },
     {
-      "id": "3f46802a-8925-4510-a2e4-774113cb6ed6",
-      "name": "calmdown.mp3",
-      "time": "18/12/2023, 11:48:22",
-      "genre": "Pop",
-      "artist": "hgvkgfk",
-      "audioPath": "\\songs\\calmdown.mp3"
+      "id": 28,
+      "name": "Starboy",
+      "artist": "The Weeknd",
+      "path": "/Starboy.mp3",
+      "genre": "Rap"
     },
     {
-      "id": "c8656f7a-18db-4722-9899-27ab4eaae4fd",
-      "name": "calmdown.mp3",
-      "time": "18/12/2023, 11:49:51",
-      "genre": "Rock",
-      "artist": "csad",
-      "audioPath": "\\songs\\calmdown.mp3"
+      "id": 29,
+      "name": "The Hills",
+      "artist": "The Weeknd",
+      "path": "/TheHills.mp3",
+      "genre": "Rap"
     },
     {
-      "id": "3efa3eca-789a-46ea-ab08-7bdb6d40be58",
-      "name": "Love Yourself",
-      "time": "18/12/2023, 15:00:01",
-      "genre": "Pop",
-      "artist": "kmlksmkm",
-      "audioPath": "\\songs\\LoveYourself.mp3"
+      "id": 30,
+      "name": "One Dance",
+      "artist": "Drake",
+      "path": "/OneDance.mp3",
+      "genre": "Rock"
     },
     {
-      "id": "2c99e747-3c9b-424e-882c-28399de58b7b",
-      "name": "Love Yourself",
-      "time": "18/12/2023, 15:50:27",
-      "genre": "Classic",
-      "artist": "hgvkgfk",
-      "audioPath": "\\songs\\calmdown.mp3"
+      "id": 31,
+      "name": "Mockingbird",
+      "artist": "Eminem",
+      "path": "/Mockingbird.mp3",
+      "genre": "Rock"
     }
+    
   ]
 }

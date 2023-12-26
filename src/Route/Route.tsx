@@ -38,9 +38,10 @@ const routes=[
         path:'/SignIn',
         element:<SignIn/>
     },
-    {   path:'/Home1',
-    element:<Home1/>
-},
+    {   
+        path:'/Home1',
+        element:<Home1/>
+    },
 ];
 
 export default routes;

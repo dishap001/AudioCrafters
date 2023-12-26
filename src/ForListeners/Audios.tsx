@@ -21,7 +21,7 @@ const Audios: React.FC = () => {
   const userServices = UserServices();
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Audio[]>([]);
-
+  
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
@@ -76,7 +76,7 @@ const Audios: React.FC = () => {
       </div>
       <i onClick={handleSearchButtonClick} ><FaSearch /></i>
           </div>
-      <Row className="mb-2 flex-wrap justify-content-center">
+      <Row className="mb-2 mt-2 flex-wrap justify-content-center">
         <Col xs="auto">
           <Button onClick={() => handleGenreClick("Pop")}>Pop</Button>
         </Col>
@@ -112,6 +112,7 @@ const Audios: React.FC = () => {
                   <AudioPlayer
                     audioSrc={audio.audioPath || audio.path}
                     audioName={audio.name}
+                    artist={audio.artist}
                     genre={audio.genre}
                   />
                 )}

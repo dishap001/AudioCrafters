@@ -53,21 +53,23 @@ const MenuList = ( ) => {
             <span>{"For Listeners"}</span>
           </a>
         </li>
+        {!signedIn && (
         <li>
           <a href="/SignUp">
             <i><CgProfile /></i>
             <span>{"Sign Up"}</span>
           </a>
-        </li>
+        </li>)}
+        {!signedIn && (
         <li>
           <a href="/SignIn">
             <i><FaSignInAlt /></i>
             <span>{"Sign In"}</span>
           </a>
-        </li>
+        </li>)}
         {signedIn && (
           <li>
-            <a href="/SignOut">
+            <a href="/Home1">
               <i><FaSignOutAlt /></i>
               <span onClick={handleSignOutClick}>{"Sign Out"}</span>
             </a>
