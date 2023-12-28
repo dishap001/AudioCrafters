@@ -2,7 +2,7 @@
 
 import './LeftMenu.css';
 import {BsFillHouseFill } from 'react-icons/bs';
-import {FaMicrophoneAlt, FaPodcast,FaSignInAlt,FaSignOutAlt} from 'react-icons/fa';
+import { FaMicrophoneAlt, FaPodcast,FaRegHeart,FaSignInAlt,FaSignOutAlt} from 'react-icons/fa';
 import { CgProfile } from "react-icons/cg";
 import { useAuth } from "../UseAuth/AuthContext";
 import { useEffect } from 'react';
@@ -55,6 +55,12 @@ const MenuList = ( ) => {
             <span>{"For Listeners"}</span>
           </a>
         </li>
+        <li>
+            <a href="/LikedSongs">
+              <i>< FaRegHeart /> </i>
+              <span>{"Liked Songs"}</span>
+            </a>
+          </li>
         {!signedIn && (
         <li>
           <a href="/SignUp">

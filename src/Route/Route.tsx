@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import Loading from "../Loading/Loading";
+import LikedSongs from "../ForListeners/LikedSongs";
 
 
 // const Home =Loading(lazy(async () => await import ('../Home/Home')));
@@ -24,7 +25,6 @@ const routes=[
     },
     {   path:'/ForArtists',
         element:(
-        
             <PrivateRoute path="/ForArtists">
             <ForArtists />
           </PrivateRoute>),
@@ -49,6 +49,10 @@ const routes=[
     {   
         path:'/Home1',
         element:<Home1/>
+    },
+    {   
+        path:'/LikedSongs',
+        element:<LikedSongs/>
     }
 ];
 

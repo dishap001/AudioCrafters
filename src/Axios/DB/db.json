@@ -290,6 +290,21 @@
       "path": "/Mockingbird.mp3",
       "genre": "Rock"
     }
-    
+  ],
+  "LikedSongs": [
+    {
+      "name": "The Real Slim Shady",
+      "artist": "Eminem",
+      "path": "/TheRealSlimShady.mp3",
+      "genre": "Rap",
+      "id": 7
+    },
+    {
+      "name": "Gangsta Rap Made Me Do It",
+      "artist": "Ice Cube",
+      "path": "/GangstaRapMadeMeDoIt.mp3",
+      "genre": "Rap",
+      "id": 8
+    }
   ]
 }
