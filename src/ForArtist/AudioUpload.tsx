@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { FaDownload } from "react-icons/fa6";
 import UserServices from "../Axios/UserServices";
 import "bootstrap/dist/css/bootstrap.min.css";
+import './AudioRecorder.css'
 
 interface UploadedFile {
   id: string;
@@ -107,8 +108,7 @@ const AudioUpload: React.FC = () => {
   return (
     <Container
       fluid
-      className="d-flex flex-column align-items-center justify-content-center"
-      style={{ marginLeft: "280px", width: "calc(100% - 280px)" }}
+      className="d-flex flex-column align-items-center justify-content-center AudioRecorder"
     >
       <div className="my-4">
         {" "}
@@ -123,12 +123,7 @@ const AudioUpload: React.FC = () => {
           </Col>
         </Row>
         {isFormVisible && (
-          <Row style={{
-            background: "rgba(34, 34, 34, 0.9)",
-            backdropFilter: "blur(2px)",
-            color: "white",borderRadius: "15px",
-            padding: "20px"
-          }}>
+          <Row className="customRow-uploadAudio">
             <Col>
               <Form>
                 <Form.Group controlId="audioFile">

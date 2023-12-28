@@ -6,7 +6,7 @@ import Footer from "../MainMenu/Footer";
 function Home() {
   return (
     <>
-      <div className="Container"  style={{ marginLeft: "280px", width: "calc(100% - 280px)" }}>
+      <div className="Container" >
         <section  className="home-container"
              >
           <h1>Record Music</h1>

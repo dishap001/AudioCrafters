@@ -2,8 +2,12 @@
 import { lazy } from "react";
 import Loading from "../Loading/Loading";
 
+
 // const Home =Loading(lazy(async () => await import ('../Home/Home')));
 const Home1 =Loading(lazy(async () => await import ('../Home/Home1')));
+
+
+const PrivateRoute =Loading(lazy(async () => await import ('../UseAuth/PrivateRoute')));
 
 
 const SignUp =Loading(lazy(async () => await import ('../UserRegistration/SignUp')));
@@ -19,7 +23,11 @@ const routes=[
         element:<Home1/>
     },
     {   path:'/ForArtists',
-        element:<ForArtists />
+        element:(
+        
+            <PrivateRoute path="/ForArtists">
+            <ForArtists />
+          </PrivateRoute>),
     },
     {   path:'/AudioRecorder',
         element:<AudioRecorder />
@@ -41,7 +49,7 @@ const routes=[
     {   
         path:'/Home1',
         element:<Home1/>
-    },
+    }
 ];
 
 export default routes;

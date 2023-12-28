@@ -1,15 +1,17 @@
-import  { useEffect } from "react";
+// import  { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./ForArtist.css"; 
 import { AiOutlineAudio } from "react-icons/ai";
+import "bootstrap/dist/css/bootstrap.min.css";
+import './ForArtist.css'
 
-function ForArtists() {
-  useEffect(() => {}, []);
+
+
+const ForArtists=()=> {
 
   return (
-  
-    <div className="ForArtist" style={{ marginLeft: "300px", width: "calc(100% - 280px)",marginRight:"100px"}}>
+  <>
+     
+    <div className="ForArtist">
       <div className="artists-container">
           <h2>RECORD MUSIC... UPLOAD MUSIC...</h2>
           <span>Unleash Your Musical Journey</span>
@@ -33,7 +35,7 @@ function ForArtists() {
 
 
   </div>
-  
+  </>
   );
 }
 

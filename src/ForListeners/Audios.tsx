@@ -1,9 +1,10 @@
 
 import React, { useEffect, useState } from "react";
-import { Row, Col, Button, Card } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import UserServices from "../Axios/UserServices";
 import AudioPlayer from "../Player/AudioPlayer";
 import { FaSearch } from "react-icons/fa";
+import './ForListeners.css'
 
 interface Audio {
   id: number;
@@ -61,11 +62,8 @@ const Audios: React.FC = () => {
   const displayedAudios =
     searchResults.length > 0 ? searchResults : filteredAudios;
   return (
-    <div
-      className="text-light d-flex align-items-center justify-content-center flex-column"
-      style={{ marginLeft: "280px", width: "calc(100% - 280px)" }}
-      >
-      <div className="Searching">
+    <div className="text-light d-flex align-items-center justify-content-center flex-column containerWrapper">
+    <div className="Searching searchingContainer">
       <div className="searchBox">
         <input
           type="text"
@@ -76,7 +74,7 @@ const Audios: React.FC = () => {
       </div>
       <i onClick={handleSearchButtonClick} ><FaSearch /></i>
           </div>
-      <Row className="mb-2 mt-2 flex-wrap justify-content-center">
+      <Row className="mb-2 mt-2 flex-wrap justify-content-center custom-row">
         <Col xs="auto">
           <Button onClick={() => handleGenreClick("Pop")}>Pop</Button>
         </Col>
@@ -97,17 +95,12 @@ const Audios: React.FC = () => {
         </Col>
       </Row>
 
-      <Row className="align-items-end justify-content-center">
+      <Row className="align-items-end justify-content-center custom-row">
         {displayedAudios.length > 0 ? (
           displayedAudios.map((audio) => (
             <Col key={audio.id}>
-              <Card
-                className="mb-4 d-flex justify-content-center align-items-center"
-                style={{
-                  background: "rgba(34, 34, 34, 0.6)",
-                  backdropFilter: "blur(0px)",
-                }}
-              >
+             
+              <div className="CardAudio">
                 {(audio.audioPath || audio.path) && (
                   <AudioPlayer
                     audioSrc={audio.audioPath || audio.path}
@@ -116,7 +109,7 @@ const Audios: React.FC = () => {
                     genre={audio.genre}
                   />
                 )}
-              </Card>
+              </div>
             </Col>
           ))
         ) : (

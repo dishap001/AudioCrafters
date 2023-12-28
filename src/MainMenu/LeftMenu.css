@@ -157,7 +157,7 @@
   }
   @media screen and (max-width: 550px) {
     .leftMenu {
-      min-width: 64px;
+      backdrop-filter: blur(2px);
       width: 64px;
     }
   
@@ -187,11 +187,19 @@
   }
   @media screen and (max-width: 768px) {
     .leftMenu {
-      width: 100%;
-      padding: 15px;
+      backdrop-filter: blur(2px);
+      width: 64px;
     }
   
     .leftMenu .searchBox {
+      display: none;
+    }
+  
+    .leftMenu .trackList {
+      display: none;
+    }
+  
+    .leftMenu .playListContainer {
       display: none;
     }
   
@@ -204,6 +212,12 @@
     }
   
     .leftMenu .menuContainer ul li {
-      margin: 15px 0;
+      margin: 25px 0;
     }
+  
+    /* Hide logo on smaller screens */
+    .leftMenu .logoContainer .logo {
+      display: none;
+    }
+  
   }

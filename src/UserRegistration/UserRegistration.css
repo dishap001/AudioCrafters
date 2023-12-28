@@ -1,5 +1,7 @@
-/* UserRegistration.css */
-
+.container{
+    margin-Left: "280px";
+    width: "calc(100% - 280px)"
+}
 .form-container {
     max-width: 400px;
     color: #f1f1f1;
@@ -70,10 +72,16 @@ label {
     margin-right: 10px; /* Add margin between label and input */
 }
 @media (min-width: 768px) {
+    .container{
+        margin-Left: "64px";
+        width: "calc(100% - 64px)"
+    }
     .form-container.signup,
     .form-container.signin {
         max-width: 400px; /* Adjusted max-width for larger screens */
         float: right; /* Align to the right side */
+        margin-left: 64px;
+        width: calc(100% - 64px);
     }
 
     .form-group.horizontal {
@@ -86,27 +94,5 @@ label {
         margin-right: 10px; /* Add margin between label and input */
     }
 }
-/* Responsive Styles */
-@media (max-width: 600px) {
-    .form-container {
-        max-width: 100%;
-        margin-top: 20px;
-        margin: auto;
-    }
 
-    .form-container.signup {
-        max-width: 100%;
-        float: none;
-    }
 
-    .form-container.signin {
-        max-width: 100%;
-        float: none;
-    }
-
-    .form-group.horizontal {
-        flex-direction: column; /* Adjust direction to column for smaller screens */
-        align-items: center; /* Center the content vertically */
-        justify-content: center;
-    }
-}

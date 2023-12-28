@@ -63,7 +63,7 @@ const SignUp = () => {
   });
 
   return (
-    <Container fluid style={{ marginLeft: "280px", width: "calc(100% - 280px)" }}>
+    <Container fluid >
       <Row className="justify-content-md-center">
         <Col md={6}>
           <Form onSubmit={handleSubmit} className="form-container">

@@ -1,4 +1,6 @@
 .Container {
+  margin-Left: 280px;
+  width: calc(100% - 280px);
   align-items: center;
   justify-content: center;
   text-align: center; 
@@ -22,11 +24,12 @@
 }
 
 .features-section {
-  margin-left: 280px;
+  margin-left: 180px;
   width: calc(100% - 280px);
   padding: 50px 0; /* Adjust the padding as needed */
   margin-top: 200px;
   margin-bottom: 160px;
+  backdrop-filter: blur(2px);
 }
 
 .features-grid {
@@ -119,7 +122,7 @@
 
 .typeGenres {
   display: grid;
-  margin-left: 280px;
+  margin-left: 180px;
   width: calc(100% - 280px);
   margin-right: 100px;
   gap: 20px;
@@ -157,15 +160,23 @@
   text-align: center;
 }
 @media (max-width: 768px) {
+  .Container {
+    margin-Left: 64px;
+    width: calc(100% - 64px);
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    height: fit-content;
+  }
   .home-container {
     margin-left: 20px;
-    width: calc(100% - 20px);
+    width: calc(100% - 64px);
     margin-right: 20px;
   }
 
   .features-section {
     margin-left: 20px;
-    width: calc(100% - 20px);
+    width: calc(100% - 64px);
     margin-right: 20px;
   }
 

@@ -1,14 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import {  useEffect, useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 // import axios from 'axios';
 import './UserRegistration.css';
 import UserServices from '../Axios/UserServices';
+import { useAuth } from '../UseAuth/AuthContext';
+
+
+
+
 interface FormData {
   email: string;
   password: string;
@@ -32,7 +38,12 @@ const SignIn = () => {
     password: Yup.string().required('Password is required'),
   });
 
- 
+  const { setSignedIn, SignIn} =useAuth();
+  const checkSignedIn=()=>{
+    const storedUser=localStorage.getItem('IsSignedIn');
+    setSignedIn(!!storedUser);
+  };
+  
   const handleSubmit = async () => {
     try {
       let isValid = true;
@@ -48,10 +59,11 @@ const SignIn = () => {
           if (RegisteredUsers.email === formData.email) {
             emailFound = true;
             if (RegisteredUsers.password === formData.password) {
-              localStorage.setItem("isSignIn",JSON.stringify(formData.email))
+            //const SignInToken = localStorage.setItem("isSignIn",JSON.stringify(formData));
+            SignIn({ email: formData.email, password: formData.password });
+              setSignedIn(true);
               alert('Sign In Successful');
               navigate('/');
-              window.location.reload();
               
             } else {
               isValid = false;
@@ -76,7 +88,7 @@ const SignIn = () => {
     }
   };
   
-  
+
   const {
     
     values,
@@ -95,10 +107,11 @@ const SignIn = () => {
     validationSchema: validationSchema,
     onSubmit: handleSubmit,
   });
-
+  useEffect(() => {
+    checkSignedIn();
+}, []);
   return (
-    <Container fluid 
-    style={{ marginLeft: "280px", width: "calc(100% - 280px)" }}>
+    <Container fluid >
       <Row className="justify-content-md-center" >
         <Col md={6}>
           <Form onSubmit={formikHandleSubmit} className="form-container">
@@ -114,6 +127,7 @@ const SignIn = () => {
                 onChange={(e) => {
                   handleChange(e);
                   setFormData({ ...formData, email: e.target.value });
+                  
                 }}
                 isInvalid={touched.email && !!errors.email}
               />

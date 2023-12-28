@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
 
   return (
     <div className="bg-dark text-white">
-      <Container style={{ marginTop:"30px" , padding:"20px "}}>
+      <Container style={{ marginTop:"30px" , padding:"20px ", backdropFilter: "blur(10px)",}}>
     
         <Row>
           <Col>
