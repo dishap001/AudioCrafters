@@ -11,6 +11,8 @@ import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import './UserRegistration.css';
 import UserServices from '../Axios/UserServices';
 import { useAuth } from '../UseAuth/AuthContext';
+import {ToastContainer, toast } from 'react-toastify'; // Added: Import toast from react-toastify
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -61,8 +63,9 @@ const SignIn = () => {
             if (RegisteredUsers.password === formData.password) {
             //const SignInToken = localStorage.setItem("isSignIn",JSON.stringify(formData));
             SignIn({ email: formData.email, password: formData.password });
+            toast.success('Sign In Successful');
               setSignedIn(true);
-              alert('Sign In Successful');
+             
               navigate('/');
               
             } else {
@@ -71,6 +74,7 @@ const SignIn = () => {
                 ...prevErrors,
                 password: 'Wrong Password',
               }));
+              toast.error('Wrong Password');
             }
           }
         }));
@@ -81,6 +85,7 @@ const SignIn = () => {
             ...prevErrors,
             email: 'Email Id not Registered',
           }));
+          toast.error('Email Id not Registered'); 
         }
       }
     } catch (error) {
@@ -168,8 +173,12 @@ const SignIn = () => {
           
         </Col>
       </Row>
+      <ToastContainer />
     </Container>
   );
 };
 
+
+
 export default SignIn;
+

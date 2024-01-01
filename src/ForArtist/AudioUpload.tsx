@@ -6,6 +6,8 @@ import { FaDownload } from "react-icons/fa6";
 import UserServices from "../Axios/UserServices";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './AudioRecorder.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface UploadedFile {
   id: string;
@@ -14,10 +16,12 @@ interface UploadedFile {
   time: string;
   genre: string;
   artist: string;
+  artistEmail: string;
   audioPath: string;
 }
 
 const AudioUpload: React.FC = () => {
+
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -25,21 +29,41 @@ const AudioUpload: React.FC = () => {
   const [artistName, setArtistName] = useState<string>("");
   const [selectedGenre, setSelectedGenre] = useState<string>("");
   const [audioPath, setAudioPath] = useState<string>("");
-
+  const [artistEmail, setArtistEmail] = useState<string>(""); 
   const userServices = UserServices();
-
+  const [artistEmailError, setArtistEmailError] = useState<string>("");
+  const [userEmail, setUserEmail] = useState<string>("");
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await userServices().getUploadedAudio();
-        setUploadedFiles(response.data);
+        const storedUser = localStorage.getItem('isSignIn');
+        if (storedUser) {
+          const user = JSON.parse(storedUser);
+          const userEmail = user.email;
+          setUserEmail(userEmail); 
+          console.log('User email from local storage:', userEmail);
+  
+          // Use the signed-in email to fetch data specific to the user
+          const response = await userServices().getUploadedAudio();
+  
+          // Filter audio files based on the signed-in user's email
+          const filteredFiles = response.data.filter(
+            (file: UploadedFile) => file.artistEmail === userEmail
+          );
+  
+          setUploadedFiles(filteredFiles);
+        }
       } catch (error) {
-        console.error("Error fetching data from the server:", error);
+        console.error('Error fetching data from the server:', error);
       }
     };
+  
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
+  
+
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
@@ -50,9 +74,12 @@ const AudioUpload: React.FC = () => {
 
   const handleUpload = async () => {
     if (selectedFile) {
-      // const fileURL = URL.createObjectURL(selectedFile);
-      // console.log('File URL:', fileURL);
-      // console.log('File Details:', selectedFile.name, selectedFile.size, selectedFile.type);
+     
+         // Validate artistEmail
+         if (artistEmail !== userEmail) {
+          setArtistEmailError("Artist Email must match SignedIn Email");
+          return;
+        }
 
       const newFile: UploadedFile = {
         id: uuidv4(),
@@ -61,12 +88,14 @@ const AudioUpload: React.FC = () => {
         time: new Date().toLocaleString(),
         genre: selectedGenre,
         artist: artistName,
+        artistEmail: artistEmail, 
         audioPath: audioPath,
       };
 
       try {
         const response = await userServices().addUploadedAudio(newFile);
         console.log(response.data);
+        toast.success('Upload Successfull!!');
       } catch (error) {
         console.error("Error sending file details to the server:", error);
       }
@@ -83,6 +112,8 @@ const AudioUpload: React.FC = () => {
       setSelectedGenre("");
       setAudioPath("");
       setIsFormVisible(false);
+
+      setArtistEmailError("");
     }
   };
 
@@ -92,6 +123,7 @@ const AudioUpload: React.FC = () => {
     link.href = url;
     link.download = name;
     link.click();
+    toast.success('Download Successful');
   };
 
   const handleDelete = async (id: string) => {
@@ -99,9 +131,12 @@ const AudioUpload: React.FC = () => {
       await userServices().deleteUploadedAudio(id);
       setUploadedFiles((prevFiles) =>
         prevFiles.filter((file) => file.id !== id)
+        
       );
+      toast.success('Delete Successful');
     } catch (error) {
       console.error("Error deleting file:", error);
+      toast.success('Delete Successful');
     }
   };
 
@@ -161,6 +196,24 @@ const AudioUpload: React.FC = () => {
                     value={artistName}
                     onChange={(e) => setArtistName(e.target.value)}
                   />
+                </Form.Group>
+                <Form.Group controlId="artistEmail">
+                  <Form.Label>Artist Email</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={artistEmail}
+                  
+                    onChange={(e) => {
+                      setArtistEmail(e.target.value);
+        
+                      setArtistEmailError("");
+                    }}
+                    placeholder="Same as SignedIn Email"
+                    isInvalid={!!artistEmailError}
+                  />
+                      <Form.Control.Feedback type="invalid">
+                  {artistEmailError}
+                </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group controlId="audioPath">
                   <Form.Label>Audio Path</Form.Label>
@@ -236,6 +289,7 @@ const AudioUpload: React.FC = () => {
           </div>
         </Col>
       </Row>
+      <ToastContainer/>
     </Container>
   );
 };

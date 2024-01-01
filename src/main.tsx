@@ -5,7 +5,8 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthProvider } from './UseAuth/AuthContext.tsx';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 
     <App />
+    <ToastContainer />
     </AuthProvider>
 
 

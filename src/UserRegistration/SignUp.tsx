@@ -7,7 +7,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import UserServices from "../Axios/UserServices";
 import './UserRegistration.css';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 interface FormData {
   name: string;
   email: string;
@@ -34,11 +35,12 @@ const SignUp = () => {
       const response = await userServices().addUser(values);
 
       console.log(response.data);
-      alert("Sign Up Successful");
+      toast.success("Sign Up Successful");
       navigate('/SignIn');
 
     } catch (error: any) {
       console.log('error adding post', error.message);
+      toast.error("Error signing up");
     }
   }
 
@@ -132,6 +134,7 @@ const SignUp = () => {
           </Form>
         </Col>
       </Row>
+      <ToastContainer />
     </Container>
   );
 };
