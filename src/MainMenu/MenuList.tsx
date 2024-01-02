@@ -5,7 +5,9 @@ import {BsFillHouseFill } from 'react-icons/bs';
 import { FaMicrophoneAlt, FaPodcast,FaRegHeart,FaSignInAlt,FaSignOutAlt} from 'react-icons/fa';
 import { CgProfile } from "react-icons/cg";
 import { useAuth } from "../UseAuth/AuthContext";
-import { useEffect } from 'react';
+import { useEffect} from 'react';
+
+
 // import { useNavigate } from 'react-router';
 // import { useEffect } from 'react';
 
@@ -13,14 +15,16 @@ import { useEffect } from 'react';
 const MenuList = ( ) => {
   const { SignOut,signedIn ,setSignedIn} =useAuth();
 //  const navigate=useNavigate();
-  const handleSignOut =()=>{
-    SignOut();
 
+  const handleSignOut = ()=>{
+  
+  
+    SignOut();
+   
   }
   const checkSignedIn = () => {
     console.log('Checking signed in state');
-    // const storedUser = localStorage.getItem('isSignIn');
-    // setSignedIn(!!storedUser);
+    
   };
   useEffect(()=>{
     const storedUser = localStorage.getItem('isSignIn');
@@ -85,6 +89,7 @@ const MenuList = ( ) => {
           </li>
         )}
       </ul>
+
     </div>
   );
 };

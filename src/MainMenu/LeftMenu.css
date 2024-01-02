@@ -7,7 +7,7 @@
     padding: 25px 20px;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: fixed; /* Make the left menu fixed */
+    position: fixed; 
     top: 0;
     left: 0;
     bottom: 0;
@@ -53,7 +53,7 @@
     position: relative;
     color: #848484;
     border-radius: 10px;
-    margin-right: 10px; /* Adjust the margin as needed */
+    margin-right: 10px; 
   }
   
   .searchBox input {
@@ -90,7 +90,7 @@
   }
   
   .searchBox button:hover {
-    background: #0056b3; /* Adjust the hover color as needed */
+    background: #0056b3; 
   }
   
   

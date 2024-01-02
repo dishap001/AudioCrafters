@@ -1,8 +1,10 @@
 
 import { useRef, useState } from "react";
-import { Button, ProgressBar, Table } from "react-bootstrap";
+import { Button, ProgressBar, Table} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./AudioRecorder.css";
+import { toast, ToastContainer } from "react-toastify";
+
 
 const AudioRecorder = () => {
   const audioChunk = useRef<Blob[]>([]);
@@ -18,12 +20,12 @@ const AudioRecorder = () => {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const mediaRecorder = new MediaRecorder(stream);
 
-      // Reset the audioChunk array for a new recording
+      
       audioChunk.current = [];
 
       mediaRecorder.ondataavailable = (e) => {
         if (e.data.size > 0) {
-          // save the data
+        
           audioChunk.current.push(e.data);
         }
       };
@@ -106,8 +108,11 @@ const AudioRecorder = () => {
     setRecordings((prevRecs) =>
       prevRecs.filter((_, index) => index !== indexToDelete)
     );
+    toast.error('Delete Successful');
   };
-
+  const showToastForDownload = () => {
+    toast.success('Download Successful');
+  };
   return (
     <div className="AudioRecorder" >
       <div className="audio-recorder-container">
@@ -168,7 +173,7 @@ const AudioRecorder = () => {
                 </td>
                 <td>
                   <Button variant="primary">
-                    <a href={recUrl} download style={{ color: "white" }}>
+                    <a href={recUrl} download onClick={showToastForDownload} style={{ color: "white" }}>
                       Download
                     </a>
                   </Button>
@@ -184,6 +189,7 @@ const AudioRecorder = () => {
           </tbody>
         </Table>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

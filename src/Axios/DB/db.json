@@ -76,19 +76,16 @@
       "password": "sid2402",
       "confirmPassword": "sid2402",
       "id": 11
-    }
-  ],
-  "UploadedAudio": [
+    },
     {
-      "id": "03ac05ef-2341-4650-b252-32208b1d4994",
-      "name": "song1",
-      "time": "28/12/2023, 17:17:14",
-      "genre": "Classic",
-      "artist": "disha",
-      "artistEmail": "patil@gmail.com",
-      "audioPath": "calmdown.mp3"
+      "name": "Artist",
+      "email": "Artist@gmail.com",
+      "password": "aqswde123",
+      "confirmPassword": "aqswde123",
+      "id": 12
     }
   ],
+  "UploadedAudio": [],
   "Audios": [
     {
       "id": 1,
@@ -308,31 +305,13 @@
       "genre": "Rock"
     },
     {
-      "id": "03ac05ef-2341-4650-b252-32208b1d4994",
+      "id": "d321b33a-503a-4e4c-a98a-9f6340922ae9",
       "name": "song1",
-      "time": "28/12/2023, 17:17:14",
-      "genre": "Classic",
-      "artist": "disha",
-      "artistEmail": "patil@gmail.com",
-      "audioPath": "calmdown.mp3"
-    },
-    {
-      "id": "fcd109dc-ba0c-4807-815f-111310b02d00",
-      "name": "Peaches",
-      "time": "01/01/2024, 22:00:16",
-      "genre": "EDM",
-      "artist": "Sidd",
-      "artistEmail": "patil@gmail.com",
-      "audioPath": "\\songs\\Peaches.mp3"
-    },
-    {
-      "id": "41985602-058f-4cbe-937a-86a0e1f6d322",
-      "name": "SidSong",
-      "time": "01/01/2024, 22:37:53",
-      "genre": "Classic",
-      "artist": "Sidd",
-      "artistEmail": "Sid.24@gmail.com",
-      "audioPath": "\\songs\\Flowers.mp3"
+      "time": "02/01/2024, 12:22:29",
+      "genre": "Pop",
+      "artist": "Disha",
+      "artistEmail": "Artist@gmail.com",
+      "audioPath": "\\songs\\calmdown.mp3"
     }
   ],
   "LikedSongs": [
@@ -341,14 +320,21 @@
       "artist": "Eminem",
       "path": "/TheRealSlimShady.mp3",
       "genre": "Rap",
-      "id": 7
+      "id": 1
     },
     {
       "name": "Gangsta Rap Made Me Do It",
       "artist": "Ice Cube",
       "path": "/GangstaRapMadeMeDoIt.mp3",
       "genre": "Rap",
-      "id": 8
+      "id": 2
+    },
+    {
+      "name": "Get Whoa",
+      "artist": "Makj",
+      "path": "/GetWhoa.mp3",
+      "genre": "EDM",
+      "id": 3
     }
   ]
 }

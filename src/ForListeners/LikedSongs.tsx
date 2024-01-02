@@ -12,7 +12,7 @@ interface Music {
   name: string;
   artist: string;
   genre: string;
-  isLiked: boolean; // Add isLiked property
+  isLiked: boolean; 
 }
 
 const LikedSongs = () => {
@@ -22,7 +22,7 @@ const LikedSongs = () => {
     const fetchLikedSongs = async () => {
       try {
         const response = await axios.get('http://localhost:3000/LikedSongs');
-        // Set isLiked property based on the data
+    
         const updatedLikedSongs = response.data.map((song: Music) => ({ ...song, isLiked: true }));
         setLikedSongs(updatedLikedSongs);
       } catch (error) {
@@ -44,12 +44,12 @@ const LikedSongs = () => {
     fontFamily: 'YourPreferredFont, sans-serif',
     fontWeight: 'bold',
     background: 'rgba(34, 34, 34, 0.6)',
-    backdropFilter: 'blur(10px)', // Use camelCase for backdrop-filter
-    padding: '10px', // Add padding for better visibility
+    backdropFilter: 'blur(10px)', 
+    padding: '10px', 
   }}>Liked Songs</h2>
 
       <Row className="align-items-end justify-content-center custom-row">
-        {likedSongs.length > 0 ? ( // Check if likedSongs array is not empty
+        {likedSongs.length > 0 ? (
           likedSongs.map((music: Music) => (
             <Col key={music.id}>
               <div className="CardAudio">
@@ -68,12 +68,12 @@ const LikedSongs = () => {
             <p
               style={{
                 fontSize: '18px',
-                color: '#555',
+                color: 'white',
                 fontWeight: 'bold',
                 fontFamily: 'Montserrat, sans-serif',
               }}
             >
-              No liked songs available
+              No liked Songs Available...
             </p>
           </div>
         )}

@@ -1,7 +1,7 @@
-/* Custom CSS for AudioPlayer component */
+
 
   .custom-wrapper {
-    width: 15rem; /* Adjust the width as needed */
+    width: 15rem; 
     background-color: #decc3e;
   }
   
@@ -9,7 +9,7 @@
     background-color: #decc3e;
     border-radius: 0.5rem;
     padding: 1rem;
-    text-align: center; /* Center content within the card */
+    text-align: center; 
   }
   
   .custom-image-wrapper img {
@@ -43,7 +43,7 @@
   }
   
   .custom-button {
-    background-color: #333; /* Black color */
+    background-color: #333;
     width: 2.2rem;
     height: 2.2rem;
     font-size: 16px;
@@ -57,23 +57,23 @@
     margin: 5px auto 10px auto;
   }
   .custom-button:hover {
-    background-color: rgba(0, 0, 0, 0.6); /* Darker shade on hover */
+    background-color: rgba(0, 0, 0, 0.6); 
   }
 
 
 
   .custom-dropdown-button {
-    background-color: transparent; /* Transparent background */
+    background-color: transparent; 
     color: #000000;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px; 
     transition: color 0.3s;
   }
   
   .custom-dropdown-button:hover {
-    color: #000000; /* Hover color */
+    color: #000000; 
   }
   
 
@@ -86,5 +86,5 @@
 
 
 .custom-dropdown-button:hover {
-  background-color: rgba(34, 34, 34, 0.6); /* Darker shade on hover */
+  background-color: rgba(34, 34, 34, 0.6); 
 }

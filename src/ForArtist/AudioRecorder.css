@@ -36,11 +36,11 @@
   
  /* Adjust column widths */
 td:nth-child(2) {
-    width: 50%; /* Adjust the width as needed for the "Recording" column */
+    width: 50%; 
   }
   
   td:nth-child(3) {
-    width: 40%; /* Adjust the width as needed for the "Actions" column */
+    width: 40%; 
   }
   
   button {

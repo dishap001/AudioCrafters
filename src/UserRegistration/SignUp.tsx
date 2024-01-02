@@ -67,9 +67,9 @@ const SignUp = () => {
   return (
     <Container fluid >
       <Row className="justify-content-md-center">
-        <Col md={6}>
+        <Col   className='ColForm'md={6}>
           <Form onSubmit={handleSubmit} className="form-container">
-            <h2 className="text-center">User Registration Form</h2>
+            <h2 className="text-center">Artist Registration Form</h2>
 
             <Form.Group controlId="name"  className="form-group horizontal">
               <Form.Label>Name:</Form.Label>

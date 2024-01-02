@@ -74,23 +74,21 @@ function AudioPlayer({ audioSrc ,audioName,artist,genre ,hideLikeButton}: AudioP
   };
 
   
-    // const toggleLike = () => {
-    //   setLiked(!isLiked);
-    // };
+
     const toggleLike = async () => {
       try {
-        // const encodedAudioName = encodeURIComponent(audioName);
+      
         const likedSongsResponse = await axios.get('http://localhost:3000/LikedSongs');
         const existingLikedSong = likedSongsResponse.data.find((song: any) => song.name === audioName);
     
         if (isLiked) {
-          // If already liked, send a DELETE request to remove it
+          
           if (existingLikedSong) {
             await axios.delete(`http://localhost:3000/LikedSongs/${existingLikedSong.id}`);
             console.log('Deleted liked song:', existingLikedSong);
           }
         } else {
-          // If not liked, fetch details from Audios endpoint and send a POST request to LikedSongs
+          
           const audiosResponse = await axios.get('http://localhost:3000/Audios');
           const matchingAudio = audiosResponse.data.find((audio: any) => audio.name === audioName && audio.genre === genre);
     
@@ -108,7 +106,6 @@ function AudioPlayer({ audioSrc ,audioName,artist,genre ,hideLikeButton}: AudioP
           }
         }
     
-        // Update the local state
         setIsLiked(!isLiked);
       } catch (error) {
         console.error('Error toggling like:', error);

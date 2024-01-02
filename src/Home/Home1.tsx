@@ -66,43 +66,39 @@ function Home() {
             </div>
           </div>
         </section>
-        <section className="typeGenres">
-            {/* Pop Genre */}
+        <section className="typeGenres" >
+          
             <Link to="/ForListeners">
               <div className="genreContainer" style={{ backgroundImage: 'url("Pop.jpg")' }}>
                 <span><strong>Pop</strong></span>
               </div>
             </Link>
 
-            {/* Classic Genre */}
+         
             <Link to="/ForListeners">
               <div className="genreContainer" style={{ backgroundImage: 'url("Classic.jpg")' }}>
                 <span><strong>Classic</strong></span>
               </div>
             </Link>
 
-            {/* Rap Genre */}
             <Link to="/ForListeners">
               <div className="genreContainer" style={{ backgroundImage: 'url("Rap.jpg")' }}>
                 <span><strong>Rap</strong></span>
               </div>
             </Link>
 
-            {/* EDM Genre */}
             <Link to="/ForListeners">
               <div className="genreContainer" style={{ backgroundImage: 'url("EDM.jpg")' }}>
                 <span><strong>EDM</strong></span>
               </div>
             </Link>
 
-            {/* Rock Genre */}
             <Link to="/ForListeners">
               <div className="genreContainer" style={{ backgroundImage: 'url("Rock.jpg")' }}>
                 <span><strong>Rock</strong></span>
               </div>
             </Link>
 
-            {/* Show All Genres */}
             <Link to="/ForListeners">
               <div className="genreContainer" style={{ backgroundImage: 'url("default.jpg")' }}>
                 <span><strong>Show All</strong></span>

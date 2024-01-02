@@ -6,6 +6,8 @@ import AudioPlayer from "../Player/AudioPlayer";
 import { FaSearch } from "react-icons/fa";
 import './ForListeners.css'
 
+
+
 interface Audio {
   id: number;
   name: string;
@@ -16,12 +18,14 @@ interface Audio {
   audioPath: string;
 }
 
-const Audios: React.FC = () => {
+const Audios:  React.FC = () => {
   const [audios, setAudios] = useState<Audio[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
   const userServices = UserServices();
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Audio[]>([]);
+
+
   
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -47,7 +51,7 @@ const Audios: React.FC = () => {
       return searchMatch;
     });
     setSearchResults(filteredAudios);
-    // Use the filteredAudios as needed (e.g., update state, display, etc.)
+   
     console.log(filteredAudios);
   };
   const handleGenreClick = (genre: string | null) => {
@@ -55,7 +59,7 @@ const Audios: React.FC = () => {
     setSearchResults([]);
   };
 
-  // Filter audios based on selected genre
+
   const filteredAudios = selectedGenre
     ? audios.filter((audio) => audio.genre === selectedGenre)
     : audios;

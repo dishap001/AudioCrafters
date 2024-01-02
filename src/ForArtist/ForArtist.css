@@ -18,12 +18,12 @@
   
 }
 .artists-container {
-    flex: 1; /* Take remaining space */
+    flex: 1;
     display: flex;
     flex-direction: column;
     text-align: left;
     color: #fff;
-    max-width: 600px; /* Adjust the max-width as needed */
+    max-width: 600px;
   margin: auto;
   }
   .icon-style i{
@@ -70,22 +70,22 @@
     transition: background-color 0.3s ease; 
   }
   .listener-button {
-    background-color: rgba(255, 213, 5, 0.837); /* Yellow color for the "Music listeners Click Here" button */
+    background-color: rgba(255, 213, 5, 0.837); 
   }
   .listener-button:hover {
-    background-color: rgba(34, 34, 34, 0.6); /* Darker shade on hover */
+    background-color: rgba(34, 34, 34, 0.6); 
   }
   .icon-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Align to the right */
+    justify-content: flex-end;
   }
   
   .icon-container i {
-    font-size: 6rem; /* Adjust the size as needed */
+    font-size: 6rem; 
   }
   @media (max-width: 768px) {
-    /* Apply styles for screens larger than 768px wide */
+   
     .ForArtist {
       flex-direction: row;
       margin-left: 66px;
@@ -93,7 +93,7 @@
     }
   
     .artists-container {
-      max-width: 400px; /* Adjust the max-width for larger screens */
-      margin-right: 2rem; /* Add margin between text and icon on larger screens */
+      max-width: 400px; 
+      margin-right: 2rem; 
     }
   }

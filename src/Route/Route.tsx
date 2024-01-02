@@ -30,10 +30,17 @@ const routes=[
           </PrivateRoute>),
     },
     {   path:'/AudioRecorder',
-        element:<AudioRecorder />
+        element:
+        (
+            <PrivateRoute path="/AudioRecorder">
+            <AudioRecorder />
+          </PrivateRoute>),
     },
     {   path:'/AudioUpload',
-        element:<AudioUpload />
+        element:  (
+            <PrivateRoute path="/AudioUpload">
+            <AudioUpload/>
+          </PrivateRoute>),
     },
     {   path:'/ForListeners',
         element:<ForListeners/>

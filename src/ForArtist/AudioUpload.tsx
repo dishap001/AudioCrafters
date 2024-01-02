@@ -43,10 +43,9 @@ const AudioUpload: React.FC = () => {
           setUserEmail(userEmail); 
           console.log('User email from local storage:', userEmail);
   
-          // Use the signed-in email to fetch data specific to the user
+          
           const response = await userServices().getUploadedAudio();
   
-          // Filter audio files based on the signed-in user's email
           const filteredFiles = response.data.filter(
             (file: UploadedFile) => file.artistEmail === userEmail
           );
@@ -112,13 +111,12 @@ const AudioUpload: React.FC = () => {
       setSelectedGenre("");
       setAudioPath("");
       setIsFormVisible(false);
-
       setArtistEmailError("");
     }
   };
 
   const handleDownload = (url: string, name: string) => {
-    // Create a hidden link and trigger a click to download the file
+    
     const link = document.createElement("a");
     link.href = url;
     link.download = name;
@@ -133,10 +131,9 @@ const AudioUpload: React.FC = () => {
         prevFiles.filter((file) => file.id !== id)
         
       );
-      toast.success('Delete Successful');
+      toast.error('Delete Successful');
     } catch (error) {
       console.error("Error deleting file:", error);
-      toast.success('Delete Successful');
     }
   };
 
@@ -233,7 +230,6 @@ const AudioUpload: React.FC = () => {
         )}
       </div>
 
-      {/* Display the table of uploaded audio files */}
       <Row>
         <Col >
           <div className="table-responsive">

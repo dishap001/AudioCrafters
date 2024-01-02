@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // AuthContext.tsx
 import React, { createContext, useContext, ReactNode, useEffect, useState } from 'react';
- 
+
 interface AuthContextProps {
   children: ReactNode;
 }
@@ -38,7 +38,9 @@ export const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
   const SignOut = () => {
     console.log('Signing out');
     localStorage.removeItem('isSignIn');
+    
     setSignedIn(false);
+   
   };
   
   const authContextValue: AuthContextType = {

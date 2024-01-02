@@ -11,7 +11,7 @@ import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import './UserRegistration.css';
 import UserServices from '../Axios/UserServices';
 import { useAuth } from '../UseAuth/AuthContext';
-import {ToastContainer, toast } from 'react-toastify'; // Added: Import toast from react-toastify
+import {ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -56,17 +56,16 @@ const SignIn = () => {
 
         let emailFound = false;
 
-        // Use the async version of map when working with Promises
         await Promise.all(result.data.map(async (RegisteredUsers: any) => {
           if (RegisteredUsers.email === formData.email) {
             emailFound = true;
             if (RegisteredUsers.password === formData.password) {
-            //const SignInToken = localStorage.setItem("isSignIn",JSON.stringify(formData));
+        
             SignIn({ email: formData.email, password: formData.password });
             toast.success('Sign In Successful');
               setSignedIn(true);
              
-              navigate('/');
+              navigate('/ForArtists');
               
             } else {
               isValid = false;
@@ -118,9 +117,9 @@ const SignIn = () => {
   return (
     <Container fluid >
       <Row className="justify-content-md-center" >
-        <Col md={6}>
+        <Col md={6} className='ColForm'>
           <Form onSubmit={formikHandleSubmit} className="form-container">
-            <h2 className="text-center">Sign In Form</h2>
+            <h2 className="text-center">Sign In For Artist</h2>
 
             <Form.Group controlId="email" className="form-group horizontal">
               <Form.Label>Email:</Form.Label>

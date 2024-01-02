@@ -1,9 +1,13 @@
 .container{
-    margin-Left: "280px";
-    width: "calc(100% - 280px)"
+    margin-left: 300px;
+    width: calc(100% - 300px);
+}
+.ColForm{
+    margin-left: 300px;
+    width: calc(100% - 300px); 
 }
 .form-container {
-    max-width: 400px;
+    max-width: 500px;
     color: #f1f1f1;
     margin: auto;
     padding: 20px;
@@ -69,29 +73,33 @@ label {
 }
 
 .form-group.horizontal label {
-    margin-right: 10px; /* Add margin between label and input */
+    margin-right: 10px; 
 }
 @media (min-width: 768px) {
     .container{
         margin-Left: "64px";
         width: "calc(100% - 64px)"
     }
+    .ColForm{
+        margin-Left: "64px";
+        width: "calc(100% - 64px)"
+    }
     .form-container.signup,
     .form-container.signin {
-        max-width: 400px; /* Adjusted max-width for larger screens */
-        float: right; /* Align to the right side */
+        max-width: 400px; 
+        float: right; 
         margin-left: 64px;
         width: calc(100% - 64px);
     }
 
     .form-group.horizontal {
-        flex-direction: row; /* Adjust direction to row for larger screens */
-        align-items: center; /* Align items to the center for larger screens */
+        flex-direction: row; 
+        align-items: center; 
         justify-content: center;
     }
 
     .form-group.horizontal label {
-        margin-right: 10px; /* Add margin between label and input */
+        margin-right: 10px; 
     }
 }
 
