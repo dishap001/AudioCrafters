@@ -37,7 +37,7 @@ const Audios:  React.FC = () => {
    
   //   console.log(filteredAudios);
   // };
-
+//debounce
   const handleSearchButtonClick = useCallback(() => {
     const filteredAudios = audios.filter((audio) => {
       const searchMatch = audio.name.toLowerCase().includes(searchQuery.toLowerCase());
