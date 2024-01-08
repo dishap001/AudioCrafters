@@ -1,11 +1,11 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import UserServices from "../Axios/UserServices";
 import AudioPlayer from "../Player/AudioPlayer";
 import { FaSearch } from "react-icons/fa";
 import './ForListeners.css'
-
+import _ from "lodash"; 
 
 
 interface Audio {
@@ -26,9 +26,34 @@ const Audios:  React.FC = () => {
   const [searchResults, setSearchResults] = useState<Audio[]>([]);
 
 
-  
+  // const handleSearchButtonClick = () => {
+  //   const filteredAudios = audios.filter((audio) => {
+  //     const searchMatch = audio.name
+  //       .toLowerCase()
+  //       .includes(searchQuery.toLowerCase());
+  //     return searchMatch;
+  //   });
+  //   setSearchResults(filteredAudios);
+   
+  //   console.log(filteredAudios);
+  // };
+
+  const handleSearchButtonClick = useCallback(() => {
+    const filteredAudios = audios.filter((audio) => {
+      const searchMatch = audio.name.toLowerCase().includes(searchQuery.toLowerCase());
+      return searchMatch;
+    });
+    setSearchResults(filteredAudios);
+    console.log(filteredAudios);
+  }, [audios, searchQuery]);
+  const debouncedSearch = _.debounce(handleSearchButtonClick, 300);
+
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
+    if (e.target.value.length >= 1) {
+      debouncedSearch();
+    }
+    setSearchResults([]);
   };
   const fetchAudios = async () => {
     try {
@@ -43,25 +68,14 @@ const Audios:  React.FC = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const handleSearchButtonClick = () => {
-    const filteredAudios = audios.filter((audio) => {
-      const searchMatch = audio.name
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase());
-      return searchMatch;
-    });
-    setSearchResults(filteredAudios);
-   
-    console.log(filteredAudios);
-  };
   const handleGenreClick = (genre: string | null) => {
     setSelectedGenre(genre);
     setSearchResults([]);
   };
 
 
-  const filteredAudios = selectedGenre
-    ? audios.filter((audio) => audio.genre === selectedGenre)
+  const filteredAudios = selectedGenre?
+   audios.filter((audio) => audio.genre === selectedGenre)
     : audios;
   const displayedAudios =
     searchResults.length > 0 ? searchResults : filteredAudios;
