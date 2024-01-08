@@ -80,7 +80,7 @@ const Audios:  React.FC = () => {
   const displayedAudios =
     searchResults.length > 0 ? searchResults : filteredAudios;
   return (
-    <div className="text-light d-flex align-items-center justify-content-center flex-column containerWrapper">
+    <div className="containerWrapper">
     <div className="Searching searchingContainer">
       <div className="searchBox">
         <input

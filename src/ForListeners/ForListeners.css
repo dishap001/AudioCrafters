@@ -1,13 +1,19 @@
 /* CustomStyles.css */
 
-.containerWrapper {
-    margin-left: 290px;
-    width: calc(100% - 290px);
-  }
+.containerWrapper { 
+  width: calc(100% - 290px);
+  margin-left: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
   
   .searchingContainer {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   
   .searchBox {
